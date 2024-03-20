@@ -36,6 +36,8 @@
         href="https://dorjibari.com.bd/pub/media/mgs/fbuilder/css/blocks.min.css" />
     <link rel="stylesheet" type="text/css" media="all"
         href="https://dorjibari.com.bd/pub/media/mgs/fbuilder/css/1/fbuilder_config.min.css" />
+
+    <script src="https://kit.fontawesome.com/d735ae1186.js" crossorigin="anonymous"></script>
     <style>
         #social-login-popup .social-login-title {
             background-color: #6e716e
