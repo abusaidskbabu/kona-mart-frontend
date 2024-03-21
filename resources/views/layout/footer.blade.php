@@ -179,24 +179,24 @@
     <div class="aiz-mobile-bottom-nav fixed-bottom bg-white shadow-lg border-top">
         <div class="d-flex justify-content-around align-items-center">
             <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary ">
-                <img src="public/frontend/images/menubar/Home2.png" width="50">
+                <img src="{{ asset('assets/frontend/images/menubar/Home2.png') }}" width="50">
             </a>
             <a href="#!"
                 class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary toggle_mobilemenu_bar">
-                <img src="public/frontend/images/menubar/Categories.png" width="50">
+                <img src="{{ asset('assets/frontend/images/menubar/Categories.png') }}" width="50">
             </a>
             <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right position-relative">
-                <span class="mobile-menubar-logo"><img src="public/frontend/images/menubar/logo-icon.png"
+                <span class="mobile-menubar-logo"><img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}"
                         width="60"></span>
             </a>
             <a href="#!" class="flex-grow-1 text-center py-3 border-right toggle_cart_bar">
-                <img src="public/frontend/images/menubar/cart11.png" width="50">
+                <img src="{{ asset('assets/frontend/images/menubar/cart11.png') }}" width="50">
                 <span class="badge" id="cart_items_sidenav">0</span>
             </a>
 
             <a href="#!" class="text-reset flex-grow-1 text-center py-2 toggle_userpanel_bar">
                 <span class="avatar avatar-sm d-block mx-auto">
-                    <img src="public/frontend/images/menubar/User.png" width="50">
+                    <img src="{{ asset('assets/frontend/images/menubar/User.png') }}" width="50">
                 </span>
             </a>
         </div>
