@@ -1,119 +1,204 @@
-<footer class="page-footer">
-    <div class="footer content">
-        <div class="footer4">
+<!--four grid end-->
+<footer id="footer" class="footer">
+    <div class="footer-top">
 
-            <div class="middle-footer">
-                <div class="frame">
-                    <div class="line">
-                        <div class="footer-block col-des-4 col-tb-6 col-mb-12 col-mb-auto mg-bottom">
-                            <div class="mg-bottom-25"><a href="index.html"><img class="img-fluid"
-                                        src="https://dorjibari.com.bd/pub/media/logo/default/logo.jpg" alt=""
-                                        width="150" /></a></div>
-                            <ul class="list-icon">
-                                <li><span class="footer-icon icon-google-map"> </span>Ambia Tower (5th Floor),
-                                    4/1m Simson Road, Sadarghat, ,Dhaka -1100</li>
-                                <li><span class="footer-icon icon-email"> </span><a
-                                        href="mailto:info@dorjibari.com.bd">info@dorjibari.com.bd</a></li>
-                                <li><span class="footer-icon icon-phone"> </span> <a
-                                        href="tel:+8801708-449677">01708-449677</a></li>
-                            </ul><!--Identifier: supro_footer_4_top_block_1, Block Id: 51-->
-                        </div>
-                        <div class="footer-block acc-block col-des-2 col-tb-6 col-mb-12 col-mb-auto">
-                            <h4 class="footer-title">HELP & SERVICE</h4>
-                            <ul class="list-links">
-                                <li><a href="#">Contact Us </a></li>
-                                <li><a href="#">Billing & Payments</a></li>
-                                <li><a href="https://dorjibari.com.bd/delivery-information">Shipping &
-                                        Delivery</a></li>
-                                <li><a href="#">Returns & Exchanges</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="https://dorjibari.com.bd/size-guide">Product Sizing</a></li>
-                            </ul><!--Identifier: supro_footer_4_top_block_2, Block Id: 42-->
-                        </div>
-                        <div class="footer-block acc-block col-des-2 col-tb-6 col-mb-12 col-mb-auto">
-                            <h4 class="footer-title">WHO WE ARE</h4>
-                            <ul class="list-links">
-                                <li><a href="https://dorjibari.com.bd/about-dorjibari/">About Dorjibari</a>
-                                </li>
-                                <li><a href="https://dorjibari.com.bd/history-of-dorjibari">History of
-                                        Dorjibari</a></li>
-                                <li><a href="https://dorjibari.com.bd/message-of-managing-director">Message of
-                                        MD</a></li>
-                                <li><a href="https://dorjibari.com.bd/our-people">Our People</a></li>
-                                <li><a href="https://dorjibari.com.bd/career">Career</a></li>
-                                <li><a href="https://dorjibari.com.bd/mission-vision">Mission & Vision</a>
-                                </li>
-                            </ul><!--Identifier: supro_footer_4_top_block_3, Block Id: 43-->
-                        </div>
-                        <div class="footer-block acc-block col-des-2 col-tb-6 col-mb-12 col-mb-auto">
-                            <h4 class="footer-title">ACCOUNT</h4>
-                            <ul class="list-links">
+        <div class="container-fluid">
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
 
-                                <li><a href="https://dorjibari.com.bd/customer/account/login">Login</a></li>
-                                <li><a href="https://dorjibari.com.bd/customer/account/create">Registration</a>
-                                </li>
-                                <li><a href="https://dorjibari.com.bd/sales/order/history/">Your Orders</a>
-                                </li>
-                                <li><a href="https://dorjibari.com.bd/wishlist/">Your Wishlist</a></li>
-                            </ul><!--Identifier: supro_footer_4_top_block_4, Block Id: 44-->
-                        </div>
-                        <div class="footer-block acc-block col-des-2 col-tb-6 col-mb-12 col-mb-auto">
-                            <h4 class="footer-title">MORE</h4>
-                            <ul class="list-links">
-                                <li><a href="https://dorjibari.com.bd/privacy-policy">Privacy Policy</a></li>
-                                <li><a href="https://dorjibari.com.bd/trams-and-conditions">Terms &
-                                        Conditions</a></li>
-                                <li><a href="https://dorjibari.com.bd/outlets">Find a Store</a></li>
-                                <li><a href="#">Site Map</a></li>
-                            </ul><!--Identifier: supro_footer_4_top_block_5, Block Id: 66-->
-                        </div>
+                <div class="col-lg-3 col-md-3 col-6 footer-box">
+                    <div class="col text-center text-md-left">
+                        <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
+                            Contact Info
+                        </h4>
+                        <a href="index.html" class="d-block footer-logo">
+                            <img loading="lazy" src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}"
+                                alt="KonaMart" height="44">
+                        </a>
+                        <ul class="footer-links contact-widget">
+                            <li>
+                                <span class="d-block opacity-5">Address: </span>
+                                <span class="d-block">{{ $settings->address }}</span>
+                            </li>
+                            <li>
+                                <span class="d-block opacity-5">Phone:</span>
+                                <span class="d-block">{{ $settings->phone }}</span>
+                            </li>
+                            <li>
+                                <span class="d-block opacity-5">Email:</span>
+                                <span class="d-block">
+                                    <a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6 footer-box">
+                    <div class="col text-center text-md-left">
+                        <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
+                            Useful Link
+                        </h4>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="AboutUs.html" title="">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    Terms &amp; Condition
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    Return Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="outlets.html" title="">
+                                    Store Location
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
+                <div class="col-md-3 col-lg-3 col-6 footer-box">
+                    <div class="col text-center text-md-left">
+                        <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
+                            My Account
+                        </h4>
+
+                        <ul class="footer-links">
+                            <li>
+                                <a href="users/login.html">
+                                    Login
+                                </a>
+                            </li>
+                            <li>
+                                <a href="users/login.html">
+                                    Order History
+                                </a>
+                            </li>
+                            <li>
+                                <a href="users/login.html">
+                                    My Wishlist
+                                </a>
+                            </li>
+                            <li>
+                                <a href="track_your_order.html">
+                                    Track Order
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-6 footer-box text-center text-md-left">
+                    <div class="col">
+
+                        <p class="mt-3"></p>
+                        <div class="d-inline-block d-md-block">
+                            <form class="form-inline" method="POST" action="https://KonaMart.com.bd/subscribers">
+                                <input type="hidden" name="_token" value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd">
+                                <div class="form-group mb-0">
+                                    <input type="email" class="form-control" placeholder="Your Email Address"
+                                        name="email1" required>
+                                </div>
+                                <button type="submit" class="btn btn-base-1 btn-icon-left">
+                                    Subscribe
+                                </button>
+                            </form>
+                            <div class="payment-icom"><img src="{{ asset('assets/frontend/images/payment.png') }}" width="100%">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="bottom-footer">
-                <div class="frame">
-                    <div class="line content-bottom">
-                        <div class="col-des-4 col-tb-12 col-mb-12 bottom-footer-copyright">
-                            <small class="copyright">
-                                <span>Copyright © 2020. All rights reserved by Dorjibari.</span>
-                            </small>
-                        </div>
-                        <div class="col-des-4 col-tb-12 col-mb-12  bottom-footer-social">
-                        </div>
-                        <div class="col-des-4 col-tb-12 col-mb-12  bottom-footer-link">
-                            <div>Powered by <a href="https://bit.ly/2Mz3ND1" target="_blank">TechOpz</a>
-                            </div><!--Identifier: supro_footer_4_bottom_block_2, Block Id: 52-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="middle-footer payment-social-icon">
-                <div class="frame">
-                    <div class="line">
-                        <div class="footer-block col-des-4 col-tb-6 col-mb-12 col-mb-auto mg-bottom">
-                            <ul class="social-links">
-                                <li><a href="https://www.facebook.com/dorjibaribd" target="_self"><i
-                                            class="theme-footer-icon icofont-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/Dorjibari_bd" target="_self"><i
-                                            class="theme-footer-icon icofont-twitter"></i></a></li>
-                                <li><a href="https://www.facebook.com/bhumisutafashion2" target="_self"><i
-                                            class="theme-footer-icon icofont-google-plus"></i></a></li>
-                                <li><a href="#" target="_self"><i
-                                            class="theme-footer-icon icofont-pinterest"></i></a></li>
-                                <li><a href="https://www.instagram.com/dorjibari_bd/" target="_self"><i
-                                            class="theme-footer-icon icofont-instagram"></i></a></li>
-                            </ul><!--Identifier: footer-top-social-icon, Block Id: 64-->
-                        </div>
-                        <div class="footer-block acc-block col-des-8 col-tb-12 col-mb-12 col-mb-auto">
-                            <p><img src="https://dorjibari.com.bd/pub/media/wysiwyg/ssl-logo-latest.png" alt=""
-                                    width="1000" height="36"></p>
-                            <!--Identifier: footer-top-payment-icon, Block Id: 67-->
-                        </div>
+        </div>
+    </div>
 
+    <div class="footer-bottom py-3 sct-color-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="copyright text-center text-md-left">
+                        <ul class="copy-links no-margin">
+                            <li>
+                                © 2024 {{ $settings->site_title }}
+                            </li>
+                            <li>
+                                <a href="terms.html">Terms</a>
+                            </li>
+                            <li>
+                                <a href="privacypolicy.html">Privacy policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="text-center my-3 my-md-0 social-nav model-2">
+                        <li>
+                            <a href="{{ $settings->facebook }}" class="facebook" target="_blank"
+                                data-toggle="tooltip" data-original-title="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $settings->instagram }}" class="instagram" target="_blank"
+                                data-toggle="tooltip" data-original-title="Instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $settings->twitter }}" class="twitter" target="_blank" data-toggle="tooltip"
+                                data-original-title="Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $settings->youtube }}" class="youtube" target="_blank" data-toggle="tooltip"
+                                data-original-title="Youtube">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center text-md-right">
+                        <p class="powered-by">Powered by <a href="" target="_blank">{{ $settings->developed_by }}</a> </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!--mobile menu bar-->
+    <div class="aiz-mobile-bottom-nav fixed-bottom bg-white shadow-lg border-top">
+        <div class="d-flex justify-content-around align-items-center">
+            <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary ">
+                <img src="public/frontend/images/menubar/Home2.png" width="50">
+            </a>
+            <a href="#!"
+                class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary toggle_mobilemenu_bar">
+                <img src="public/frontend/images/menubar/Categories.png" width="50">
+            </a>
+            <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right position-relative">
+                <span class="mobile-menubar-logo"><img src="public/frontend/images/menubar/logo-icon.png"
+                        width="60"></span>
+            </a>
+            <a href="#!" class="flex-grow-1 text-center py-3 border-right toggle_cart_bar">
+                <img src="public/frontend/images/menubar/cart11.png" width="50">
+                <span class="badge" id="cart_items_sidenav">0</span>
+            </a>
+
+            <a href="#!" class="text-reset flex-grow-1 text-center py-2 toggle_userpanel_bar">
+                <span class="avatar avatar-sm d-block mx-auto">
+                    <img src="public/frontend/images/menubar/User.png" width="50">
+                </span>
+            </a>
         </div>
     </div>
 </footer>

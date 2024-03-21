@@ -1,706 +1,327 @@
-<header class="page-header">
-    <div class="header-area  header1 search-icon-left minicart-slide myaccount-slide active-sticky active-sticky-mb">
-        <div class="middle-header">
-            <div class="megamenu_action mobile">
-                <button class="megamenu_action_mb" type="button"><span class="icon-menu"></span></button>
-            </div>
-            <strong class="logo exits-lg-mb exits-lg-stk">
-                <img class="default-logo" src="https://dorjibari.com.bd/pub/media/logo/default/logo.jpg" alt="Dorjibari"
-                    width="189" height="64" />
-                <img class="mobile-logo" src="https://dorjibari.com.bd/pub/media/mgs/setting/default/logo_2.jpg"
-                    alt="Dorjibari" />
-                <img class="sticky-logo" src="https://dorjibari.com.bd/pub/media/mgs/setting/default/logo_1.jpg"
-                    alt="Dorjibari" />
-            </strong>
+@include('layout.side-bar')
 
-            <!--menu start-->
-
-            <div class="horizontal-menu">
-                <button class="close-menu-site" id="close-menu-site"><span class="icon-cross2"></span></button>
-                <nav class="navigation mgs-megamenu--main" role="navigation">
-
-                    <ul class="nav nav-main nav-main-menu">
-                        <li class="level0 menu-4columns mega-menu-item mega-menu-fullwidth static-menu"> <a
-                                href="#" class="level0"><span>MEN TOPS</span></a><span class="toggle-menu"><span
-                                    class="icon-toggle"></span></span>
-                            <ul class="dropdown-mega-menu">
-                                <li>
-                                    <div
-                                        class="mega-menu-content mega-menu-content pd-top-10 pd-bottom-10 pd-left-15 pd-right-15">
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">SHIRTS</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/shirts/casual-full-shirts.html">CASUAL
-                                                                                FULL SHIRTS</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/shirts/casual-half-shirts.html">CASUAL
-                                                                                HALF SHIRTS</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/shirts/formal.html">FORMAL/EXCUTIVE</a>
-                                                                        </li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/shirts/exclusive.html">EXCLUSIVE
-                                                                                FORMAL-BLUE DOOR</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/shirts/bapari-shirts.html">Bapari
-                                                                                Shirts</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">Panjabi</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/panjabi/regular-fit-panjabi.html">
-                                                                                Regular Fit Panjabi</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/panjabi/semi-fit-panjabi.html">
-                                                                                Semi Fit Panjabi</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/panjabi/trendy-fit-panjabi.html">
-                                                                                Trendy Fit Panjabi</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">T-SHIRTS</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/t-shirts/full-sleeve.html">Full
-                                                                                Sleeve </a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/t-shirts/short-sleeve.html">Short
-                                                                                Sleeve </a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/t-shirts/tank-top.html">Tank
-                                                                                Top</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">BLAZER-SUIT-COAT</span>
-                                                    </a> <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/blazer-suit-coat/coat-formal.html">Coat
-                                                                                Formal</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/blazer-suit-coat/blazer-semi-fit.html">Blazer
-                                                                                Semi Fit</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/blazer-suit-coat/blazer-regular-fit.html">Blazer
-                                                                                Regular Fit</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/blazer-suit-coat/suit-semi-fit.html">Suit
-                                                                                Semi Fit</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/blazer-suit-coat/casual-coat.html">Casual
-                                                                                Coat</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">JACKET & SWEATER</span>
-                                                    </a> <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/jacket-sweater/trendy-jacket.html">Trendy
-                                                                                Jacket</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/jacket-sweater/trendy-sweater.html">Trendy
-                                                                                Sweater</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">POLO</span> </a> <span
-                                                        class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/polo/polo-short-sleeve.html">POLO
-                                                                                Short Sleeve </a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">Fothua</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-tops/fothua/trendy-fit.html">
-                                                                                Trendy Fit </a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </li>
-                            </ul>
+<div class="header bg-white">
+    <div class="top-navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col">
+                    <ul class="inline-links d-lg-inline-block d-flex justify-content-between">
+                        <li>
+                            <p class="hotline top">Call: {{ $settings->phone }}</p>
                         </li>
-                        <li class="level0 menu-4columns mega-menu-item mega-menu-fullwidth static-menu"> <a
-                                href="https://dorjibari.com.bd/men-bottom.html" class="level0"><span>MEN
-                                    BOTTOM</span></a><span class="toggle-menu"><span
-                                    class="icon-toggle"></span></span>
-                            <ul class="dropdown-mega-menu">
-                                <li>
-                                    <div
-                                        class="mega-menu-content mega-menu-content pd-top-10 pd-bottom-10 pd-left-15 pd-right-15">
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">PANTS</span> </a> <span
-                                                        class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/pants/formal-pant.html">Formal
-                                                                                Pant</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/pants/jeans-pant.html">Jeans
-                                                                                Pant</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/pants/gabardine.html">Gabardine</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">SHORTS</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/shorts/long-trouser.html">Long
-                                                                                Trouser</a></li>
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/shorts/short-trouser.html">Short
-                                                                                Trouser</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">PAJAMA</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/pajama/pajama.html">Pajama</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-des-3 col-mb-12 mega-menu-sub-item">
-                                            <ul class="sub-menu">
-                                                <li class="level1">
-                                                    <a href="javascript:void(0);"> <span
-                                                            class="mega-menu-sub-title">JOGGERS</span> </a>
-                                                    <span class="toggle-menu hidden-lg"> <span
-                                                            class="icon-toggle"></span> </span>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <div class="line">
-                                                                <div class="col-des-12 col-mb-12">
-                                                                    <ul class="sub-menu">
-                                                                        <li><a
-                                                                                href="https://dorjibari.com.bd/men-bottom/joggers/joggers.html">JOGGERS</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-
-
-                        <li class="level0 menu-1columns static-menu"> <a
-                                href="https://dorjibari.com.bd/men-accessories.html" class="level0"><span>MEN
-                                    ACCESSORIES</span></a><span class="toggle-menu"><span
-                                    class="icon-toggle"></span></span>
-                            <ul class="dropdown-mega-menu">
-                                <li>
-                                    <ul class="dropdown-mega-menu">
-                                        <li>
-                                            <ul class="dropdown-submenu-ct">
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/underwear.html">Underwear</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/socks.html">Socks</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/money-bag-wallet.html">Money
-                                                        Bag/Wallet</a></li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/cap.html">Cap</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/maflar.html">Maflar</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/belt.html">Belt</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/men-accessories/accessories/tie-bow-tie.html">Tie/Bow
-                                                        Tie</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="level0 menu-1columns static-menu"> <a
-                                href="https://dorjibari.com.bd/winter-collection.html" class="level0"><span
-                                    style="border: 1px dashed #dd1212; padding: 2px;">WINTER/23-24</span></a><span
-                                class="toggle-menu"><span class="icon-toggle"></span></span>
-                            <ul class="dropdown-mega-menu">
-                                <li>
-                                    <ul class="dropdown-mega-menu">
-                                        <li>
-                                            <ul class="dropdown-submenu-ct">
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/shirts.html">SHIRTS</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/trendy-jacket.html">JACKET</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/trendy-sweater.html">SWEATER</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/full-sleeve-t-shirt.html">T-SHIRTS</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/blazer-suit-coat.html">BLAZER-SUIT-COAT</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/joggers-trousers.html">JOGGERS-TROUSERS</a>
-                                                </li>
-                                                <li class="level1"><a
-                                                        href="https://dorjibari.com.bd/winter-collection/fatua.html">FATUA</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="level0 menu-1columns static-menu"> <a href="https://dorjibari.com.bd/outlets"
-                                class="level0"><span>STORE
-                                    LOCATION</span></a></li>
-                        <!-- <li class="level0 menu-1columns static-menu"> <a href="https://dorjibari.com.bd/offers.html" class="level0"><span>OFFERS</span></a></li>-->
-                        <li class="level0 menu-1columns static-menu"> <a href="https://dorjibari.com.bd/who-we-are"
-                                class="level0"><span>OUR
-                                    HISTORY</span></a></li>
-
                     </ul>
-
-
-
-                </nav>
+                </div>
+                <div class="col-6 text-center">
+                </div>
+                <div class="col-3 text-right d-none d-lg-block">
+                    <ul class="inline-links">
+                        <li>
+                            <a href="track_your_order.html" class="top-bar-item">Track Order</a>
+                        </li>
+                        <li>
+                            <a href="users/login.html" class="top-bar-item">Login</a>
+                        </li>
+                        <li>
+                            <a href="users/registration.html" class="top-bar-item">Registration</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </div>
+    <!-- END Top Bar -->
 
+    <!-- mobile menu -->
+    <div class="mobile-side-menu d-lg-none">
+        <div class="side-menu-overlay opacity-0" onclick="sideMenuClose()"></div>
+        <div class="side-menu-wrap opacity-0">
+            <div class="side-menu closed">
+                <div class="side-menu-header ">
+                    <div class="side-menu-close" onclick="sideMenuClose()">
+                        <i class="la la-close"></i>
+                    </div>
 
-            <!--menu end-->
+                    <div class="widget-profile-box px-3 py-4 d-flex align-items-center">
+                        <div class="image "
+                            style="background-image:url('public/frontend/images/icons/user-placeholder.jpg')"></div>
+                    </div>
+                    <div class="side-login px-3 pb-3">
+                        <a href="users/login.html">Sign In</a>
+                        <a href="users/registration.html">Registration</a>
+                    </div>
+                </div>
+                <div class="side-menu-list px-3">
+                    <!--mobile menu-->
+                    <ul class="menu-siderbar nav flex-column">
+                        @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
+                            @if(count($parrent_category->subcategory) > 0)
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-parent"> {{ $parrent_category->name }} </a>
+                                    <ul class="menu-siderbar-child nav flex-column">
+                                        @foreach ($parrent_category->subcategory as $subcategory)
+                                            <li> 
+                                                @if(count($subcategory->subcategory) > 0)
+                                                    <a href="index.html"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
+                                                    <ul class="menu-siderbar-child nav flex-column">
+                                                        @foreach ($subcategory->subcategory as $childcategory)
+                                                            <li>
+                                                                <a href="" class="text-uppercase">{{ $childcategory->name }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    <a href="" class="text-uppercase"> {{ $subcategory->name }} </a>
+                                                @endif
+                                            </li>
+                                        @endforeach 
+                                    </ul>
+                                </li>
+                            @else
+                                <a href="" class="text-uppercase"> {{ $parrent_category->name }} </a>
+                            @endif
+                        @empty
+                        @endforelse
+                        <li class="nav-item">
+                            <a href="users/login.html" class="nav-link">
+                                <i class="la la-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
 
-            <div class="right-content">
+                        <li class="nav-item">
+                            <a href="users/login.html" class="nav-link">
+                                <i class="la la-file-text"></i>
+                                <span>My Orders</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="compare.html" class="nav-link">
+                                <i class="la la-refresh"></i>
+                                <span>Compare</span>
+                                <span class="badge" id="compare_items_sidenav">0</span>
+                            </a>
+                        </li>
+                                        
+                        <li class="nav-item">
+                            <a href="cart.html" class="nav-link">
+                                <i class="la la-shopping-cart"></i>
+                                <span>Cart</span>
+                                <span class="badge" id="cart_items_sidenav">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users/login.html" class="nav-link">
+                                <i class="la la-heart-o"></i>
+                                <span>Wishlist</span>
+                            </a>
+                        </li>
 
-                <div class="block block-search">
-                    <div class="block block-title theme-header-icon"><strong>Search</strong></div>
-                    <div class="block block-content">
-                        <form class="form minisearch" id="search_mini_form"
-                            action="https://dorjibari.com.bd//instantsearch/result/" method="get">
-                            <div class="field search">
-                                <label class="label" for="search" data-role="minisearch-label">
-                                    <span>Search</span>
-                                </label>
-                                <div class="control">
-                                    <input id="search"
-                                        data-mage-init='{"quickSearch":{
-"formSelector":"#search_mini_form",
-"url":"https://dorjibari.com.bd/search/ajax/suggest/",
-"destinationSelector":"#search_autocomplete"}
-}'
-                                        type="text" name="q" value=""
-                                        placeholder="Start Searching..." class="input-text" maxlength="128"
-                                        role="combobox" aria-haspopup="false" aria-expanded="false"
-                                        aria-autocomplete="both" autocomplete="off" />
-                                    <div id="search_autocomplete" class="search-autocomplete"></div>
-                                    <div class="nested">
-                                        <a class="action advanced"
-                                            href="https://dorjibari.com.bd/catalogsearch/advanced/"
-                                            data-action="advanced-search">
-                                            Advanced Search </a>
+                        
+                        <li class="nav-item">
+                            <a href="users/login.html" class="nav-link">
+                                <i class="la la-dollar"></i>
+                                <span>My Wallet</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="users/login.html" class="nav-link">
+                                <i class="la la-user"></i>
+                                <span>Manage Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end mobile menu -->
+
+    <div class="position-relative logo-bar-area">
+        <div class="logo-searchbar">
+            <div class="container-fluid">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-lg-3 col-6">
+                        <div class="d-flex header-logo">
+                            <div class="d-block d-lg-none mobile-menu-icon-box">
+                                <!-- Navbar toggler  -->
+                                <a href="#" onclick="sideMenuOpen(this)">
+                                    <div class="hamburger-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <button type="submit" title="Search" class="action search">
-                                    <span>Search</span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="header-top-links">
-                    <div class="actions">
-                        <span class="action top-links theme-header-icon"></span>
-                    </div>
-                    <div class="login-form logged-customer">
-                        <button class="close-myaccount" id="close-myaccount"><span
-                                class="icon-cross2"></span></button>
-                        <ul class="header links">
-                            <li><a href="https://dorjibari.com.bd/customer/account/">My Account</a></li>
-                            <li class="link wishlist" data-bind="scope: 'wishlist'">
-                                <a href="https://dorjibari.com.bd/wishlist/">My Wish List
-                                    <!-- ko if: wishlist().counter -->
-                                    <span data-bind="text: wishlist().counter" class="counter qty"></span>
-                                    <!-- /ko -->
                                 </a>
-                            </li>
-                            <li class="authorization-link" data-label="or">
-                                <a
-                                    href="https://dorjibari.com.bd/customer/account/login/referer/aHR0cHM6Ly9kb3JqaWJhcmkuY29tLmJkLw%2C%2C/">
-                                    Sign In </a>
-                            </li>
-                            <li class="item link compare" data-bind="scope: 'compareProducts'"
-                                data-role="compare-products-link">
-                                <a class="action compare no-display" title="Compare Products"
-                                    data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}">
-                                    Compare Products <span class="counter qty"
-                                        data-bind="text: compareProducts().countCaption"></span>
-                                </a>
-                            </li>
-                            <li class="greet welcome" data-bind="scope: 'customer'">
-                                <!-- ko if: customer().fullname  -->
-                                <span data-bind="text: new String('Welcome, %1!').replace('%1', customer().fullname)">
-                                </span>
-                                <!-- /ko -->
-                                <!-- ko ifnot: customer().fullname  -->
-                                <span data-bind='html:"Dorjibari Online Store"'></span>
-                                <!-- /ko -->
-                            </li>
-
-                            <li><a href="https://dorjibari.com.bd/customer/account/create/">Create an
-                                    Account</a></li>
-                        </ul>
+                            </div>
+                               
+                            <!-- Brand/Logo -->
+                            <a class="navbar-brand w-100" href="/">
+                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" alt="{{ $settings->site_title }}">
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-
-                <div class="top-wishlist">
-                    <a data-bind="scope: 'wishlist'" href="https://dorjibari.com.bd/guestwishlist/">
-                        <span class="wishlist-icon icon-heart theme-header-icon"></span>
-                        <!-- ko if: wishlist().counter -->
-                        <span data-bind="text: wishlist().counter" class="counter qty"></span>
-                        <!-- /ko -->
-                    </a>
-                    <div class="block block-wishlist" data-bind="scope: 'wishlist'">
-                        <button id="close-wishlist-site" class="close-wishlist-site"><span
-                                class="icon-cross2"></span></button>
-                        <!-- ko if: wishlist().counter -->
-                        <div class="block-content">
-                            <ol class="product-items no-display" id="wishlist-sidebar"
-                                data-bind="foreach: wishlist().items, css: {'no-display': null}">
-                                <li class="product-item">
-                                    <div class="product-item-info">
-                                        <a class="product-item-photo"
-                                            data-bind="attr: { href: product_url, title: product_name }">
-                                            <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
-                                        </a>
-                                        <div class="product-item-details">
-                                            <strong class="product-item-name">
-                                                <a data-bind="attr: { href: product_url }" class="product-item-link">
-                                                    <span data-bind="text: product_name"></span>
-                                                </a>
-                                            </strong>
-                                            <div data-bind="html: product_price"></div>
-                                            <div class="product-item-actions">
-                                                <!-- ko if: product_is_saleable_and_visible -->
-                                                <div class="actions-primary">
-                                                    <!-- ko if: product_has_required_options -->
-                                                    <a href="#"
-                                                        data-bind="attr: {'data-post': add_to_cart_params}"
-                                                        class="action tocart primary btn-xs"><span>Add to
-                                                            Cart</span></a>
-                                                    <!-- /ko -->
-                                                    <!-- ko ifnot: product_has_required_options -->
-                                                    <button type="button" class="action tocart primary btn-xs"
-                                                        data-bind="attr: {'data-post': add_to_cart_params}"><span>Add
-                                                            to Cart</span></button>
-                                                    <!-- /ko -->
+                    <div class="col-lg-9 col-6 position-static">
+                        <div class="d-flex w-100">
+                            <div class="search-box flex-grow-1 px-4">
+                                <form action="https://dorjibari.com.bd/search" method="GET">
+                                    <div class="d-flex position-relative">
+                                        <div class="d-lg-none search-box-back">
+                                            <button class="" type="button"><i class="la la-long-arrow-left"></i></button>
+                                        </div>
+                                        <div class="form-group category-select d-none d-xl-block">
+                                            <select class="form-control selectpicker" name="category">
+                                                <option value="">All</option>
+                                                @forelse (\App\Category::where('is_active', 1)->get() as $category)
+                                                    <option value="men-tops" class="text-capitalize">{{ $category->name }}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
+                                        <div class="w-100">
+                                            <input type="text" aria-label="Search" id="search" name="q" class="w-100" placeholder="I am shopping for..." autocomplete="off">
+                                        </div>
+                                        
+                                        <button class="d-none d-lg-block" type="submit">
+                                            <i class="la la-search la-flip-horizontal"></i>
+                                        </button>
+                                        <div class="typed-search-box d-none">
+                                            <div class="search-preloader">
+                                                <div class="loader">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
                                                 </div>
-                                                <!-- /ko -->
-                                                <div class="actions-secondary">
-                                                    <a href="#"
-                                                        data-bind="attr: {'data-post': delete_item_params}"
-                                                        title="Remove This Item" class="btn-remove action delete">
-                                                        <span>Remove This Item</span>
-                                                    </a>
-                                                </div>
+                                            </div>
+                                            <div class="search-nothing d-none">
+
+                                            </div>
+                                            <div id="search-content">
+
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                            </ol>
-                            <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
-                                <div class="primary">
-                                    <a class="action btn btn-dark btn-full details"
-                                        href="https://dorjibari.com.bd/guestwishlist/"
-                                        title="View All Wish List"><span>View All Wish List</span></a>
+                                </form>
+
+                            </div>
+
+                            <div class="logo-bar-icons d-inline-block ml-auto">
+                                <div class="d-inline-block d-lg-none">
+                                    <div class="nav-search-box">
+                                        <a href="#" class="nav-box-link">
+                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="d-inline-block">
+                                    <div class="nav-cart-box  toggle_notification_bar" id="notification_items">
+                                        <a href="#!" class="nav-box-link">
+                                            <i class="la la-bell d-inline-block nav-box-icon"></i>
+                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                            <span class="nav-box-number new-notice-count">0</span>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="d-none d-lg-inline-block">
+                                    <div class="nav-wishlist-box" id="wishlist">
+                                        <a href="users/login.html" class="nav-box-link">
+                                            <i class="la la-heart-o d-inline-block nav-box-icon"></i>
+                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                            <span class="nav-box-number">0</span>
+                                        </a>
+                                    </div>
+                                </div>
+            
+                                <div class="d-inline-block">
+                                    <div class="nav-cart-box  toggle_cart_bar" id="cart_items">
+                                        <a href="#!" class="nav-box-link">
+                                            <i class="la la-shopping-cart d-inline-block nav-box-icon"></i>
+                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                            <span class="nav-box-number">0</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="d-inline-block">
+                                    <div class="nav-cart-box toggle_userpanel_bar">
+                                        <a href="#!" class="nav-box-link">
+                                            <i class="la la-user d-inline-block nav-box-icon"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /ko -->
-                        <!-- ko ifnot: wishlist().counter -->
-                        <div class="block-content empty">
-                            <div class="empty">You have no items in your wish list.</div>
-                        </div>
-                        <!-- /ko -->
                     </div>
-
                 </div>
-
-
-
-                <div data-block="minicart" class="minicart-wrapper">
-                    <a class="action showcart theme-header-icon" href="https://dorjibari.com.bd/checkout/cart/"
-                        data-bind="scope: 'minicart_content'">
-                        <span class="text">My Cart</span>
-                        <span class="counter qty empty"
-                            data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
-                            <span
-                                class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
-                            <span class="counter-label">
-                                <!-- ko if: getCartParam('summary_count') -->
-                                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-                                <!-- ko i18n: 'items' --><!-- /ko -->
-                                <!-- /ko -->
-                            </span>
-                        </span>
-                    </a>
-                    <div class="block block-minicart empty" data-role="dropdownDialog"
-                        data-mage-init='{"dropdownDialog":{
-"appendTo":"[data-block=minicart]",
-"triggerTarget":".showcart",
-"timeout": "2000",
-"closeOnMouseLeave": false,
-"closeOnEscape": true,
-"triggerClass":"active",
-"parentClass":"active",
-"buttons":[]}}'>
-                        <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
-                            <!-- ko template: getTemplate() --><!-- /ko -->
-                        </div>
-                    </div>
-                    <script>
-                        window.checkout = {
-                            "shoppingCartUrl": "https:\/\/dorjibari.com.bd\/checkout\/cart\/",
-                            "checkoutUrl": "https:\/\/dorjibari.com.bd\/onestepcheckout\/",
-                            "updateItemQtyUrl": "https:\/\/dorjibari.com.bd\/checkout\/sidebar\/updateItemQty\/",
-                            "removeItemUrl": "https:\/\/dorjibari.com.bd\/checkout\/sidebar\/removeItem\/",
-                            "imageTemplate": "Magento_Catalog\/product\/image_with_borders",
-                            "baseUrl": "https:\/\/dorjibari.com.bd\/",
-                            "minicartMaxItemsVisible": 5,
-                            "websiteId": "1",
-                            "maxItemsToDisplay": 10,
-                            "customerLoginUrl": "https:\/\/dorjibari.com.bd\/customer\/account\/login\/referer\/aHR0cHM6Ly9kb3JqaWJhcmkuY29tLmJkLw%2C%2C\/",
-                            "isRedirectRequired": false,
-                            "autocomplete": "off",
-                            "captcha": {
-                                "user_login": {
-                                    "isCaseSensitive": false,
-                                    "imageHeight": 50,
-                                    "imageSrc": "",
-                                    "refreshUrl": "https:\/\/dorjibari.com.bd\/captcha\/refresh\/",
-                                    "isRequired": false
-                                }
-                            }
-                        };
-                    </script>
-
-                </div>
-
-
-                <div class="megamenu_action tablet"><button class="megamenu_action_mb" type="button"><span
-                            class="icon-menu"></span></button></div>
             </div>
         </div>
-        <div class="mgs-instant-search-dropdown" data-bind="scope: 'instant_search_form'">
-            <!-- ko template: getTemplate() --><!-- /ko -->
-        </div>
-    </div>
+        
+        <!--menu-->
+        <div class="nav-area">
+            <div class="container-fluid">
+                <div class="row">
+                                    
+                    <div class="col-lg-12 col-12 hide-mobile">
+                        <!-- drop down Main menu-->
+                        <ul class="main-navigation" style="color:#fff; letter-spacing:.5px;">
+                            @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
+                                <li>
+                                    @if(count($parrent_category->subcategory) > 0)
+                                        <a href=""> <strong style="color:; font-weigh" class="text-uppercase"> {{ $parrent_category->name }} </strong> </a>
+                                        <ul>
+                                            @foreach ($parrent_category->subcategory as $subcategory)
+                                                <li> 
+                                                    @if(count($subcategory->subcategory) > 0)
+                                                        <a href=""> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
+                                                        <ul>
+                                                            @foreach ($subcategory->subcategory as $childcategory)
+                                                                <li>
+                                                                    <a href="" class="text-uppercase">{{ $childcategory->name }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        <a href="" class="text-uppercase"> {{ $subcategory->name }} </a>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <a href="" class="text-uppercase"><strong style="color:; font-weigh"> {{ $parrent_category->name }} </strong> </a>
+                                    @endif
+                                </li>
+                            @empty
+                            @endforelse
 
-    <div id="js_mobile_tabs" class="header-mobile-tabs--bottom">
-        <ul>
-            <li>
-                <button class="action-mb-tabs" id="back-home-action" type="button">
-                    <span class="icon-building"></span>
-                </button>
-            </li>
-            <li>
-                <button class="action-mb-tabs" id="my-account-action" type="button">
-                    <span class="icon-my-account"></span>
-                </button>
-            </li>
-            <li>
-                <button class="action-mb-tabs" data-bind="scope: 'wishlist'" id="wishlist-link-action"
-                    type="button">
-                    <span class="icon-wishlist"></span>
-                    <!-- ko if: wishlist().counter -->
-                    <span data-bind="text: wishlist().counter" class="counter qty"></span>
-                    <!-- /ko -->
-                </button>
-            </li>
-            <li>
-                <button class="action-mb-tabs" data-bind="scope: 'minicart_content'" id="cart-top-action"
-                    type="button">
-                    <span class="icon-cart-top"></span>
-                    <span class="counter qty empty"
-                        data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
-                        <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
-                    </span>
-                </button>
-            </li>
-        </ul>
-    </div>
-</header>
+                            <li>
+                                <a href="category/eid-collection.html" style="color: rgb(255, 255, 0);"> <strong style="Color:#c52032;"> EID COLLECTION'24 </strong></a>
+                                <ul>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="index.html"> <strong style="color:; font-weigh "> OUR HISTORY </strong></a>
+                                <ul>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- end drop down menu-->
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>   
+</div>
+                
+
+
+                                
+         
