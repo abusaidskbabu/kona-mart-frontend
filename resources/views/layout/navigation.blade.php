@@ -157,7 +157,7 @@
                                
                             <!-- Brand/Logo -->
                             <a class="navbar-brand w-100" href="/">
-                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" alt="{{ $settings->site_title }}">
+                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" height="60px" alt="{{ $settings->site_title }}">
                             </a>
                         </div>
                     </div>
