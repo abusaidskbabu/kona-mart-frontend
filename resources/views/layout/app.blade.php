@@ -465,23 +465,29 @@
         }
 
         function updateNavCart() {
-            $.post('cart/nav-cart-items.html', {
-                _token: 'iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd'
+            $.get("{{ route('get.cart') }}", {
             }, function(data) {
-                var obj = JSON.parse(data);
-                $('#cart_items').html(obj.qty);
-                $(".sidemenu.cart").html(obj.sidemenu);
+                $('#cart_items .nav-box-number').html(data.qty);
+                $(".sidemenu.cart").html(data.cart);
 
             });
         }
 
+        updateNavCart();
+
+        function getCartSummary(){
+            $.get("{{ route('update.cart.summary') }}", { 
+            }, function(data){
+                $('#cart-summary').html(data);
+            });
+        }
+
         function removeFromCart(key) {
-            $.post('cart/removeFromCart.html', {
-                _token: 'iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd',
+            $.get("{{ route('remove.cart')}}", {
                 key: key
             }, function(data) {
                 updateNavCart();
-                $('#cart-summary').html(data);
+                getCartSummary();
                 showFrontendAlert('success', 'Item has been removed from cart');
                 $('#cart_items_sidenav').html(parseInt($('#cart_items_sidenav').html()) - 1);
             });
@@ -507,8 +513,7 @@
             $('#addToCart-modal-body').html(null);
             $('#modal-size').removeClass('modal-lg');
 
-            $.post('cart/show-cart-modal.html', {
-                _token: 'iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd',
+            $.get("{{route('home.show.add.to.cart.modal') }}", {
                 id: id
             }, function(data) {
                 $('.c-preloader').hide();
@@ -535,8 +540,12 @@
 
             });
         }
+
         $('.out-of-stock').hide();
         $('#option-choice-form input').on('change', function() {
+            getVariantPrice();
+        });
+        $('.variant_field').on('change', function() {
             getVariantPrice();
         });
 
@@ -545,14 +554,13 @@
             if ($('#option-choice-form input[name=quantity]').val() > 0 && checkAddToCartValidity()) {
                 $.ajax({
                     type: "POST",
-                    url: 'https://dorjibari.com.bd/product/variant_price',
+                    url: "{{ route('home.show.product.variant.price') }}",
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
                         $('#option-choice-form #chosen_price_div').removeClass('d-none');
                         $('#option-choice-form #chosen_price_div #chosen_price').html(data.price);
                         $('#available-quantity').html(data.quantity);
                         $('.input-number').prop('max', data.quantity);
-                        //console.log(data.quantity);
                         if (parseInt(data.quantity) < 1 && data.digital != 1) {
                             $('.buy-now').hide();
                             $('.add-to-cart').hide();
@@ -590,7 +598,7 @@
                 $('.c-preloader').hide();
                 $.ajax({
                     type: "POST",
-                    url: 'https://dorjibari.com.bd/cart/addtocart',
+                    url: "{{ route('add.to.cart') }}",
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
                         $('#addToCart-modal-body').html(null);
@@ -613,7 +621,7 @@
                 $('.c-preloader').hide();
                 $.ajax({
                     type: "POST",
-                    url: 'https://dorjibari.com.bd/cart/addtocart',
+                    url: "{{ route('add.to.cart') }}",
                     data: $('#option-choice-form').serializeArray(),
                     success: function(data) {
                         $('#addToCart-modal-body').show();
@@ -688,38 +696,38 @@
                 $('.c-preloader').hide();
             });
         }
-        $('.btn-number').click(function(e) {
-            debugger;
-            e.preventDefault();
-            fieldName = $(this).attr('data-field');
-            type = $(this).attr('data-type');
+
+        function numberbtnClick(element) {
+            event.preventDefault();
+            var fieldName = $(element).attr('data-field');
+            var type = $(element).attr('data-type');
             var input = $("input[name='" + fieldName + "']");
             var currentVal = parseInt(input.val());
+            var minVal = parseInt(input.attr('min'));
+            var maxVal = parseInt(input.attr('max'));
 
             if (!isNaN(currentVal)) {
-                if (type == 'minus') {
-
-                    if (currentVal > input.attr('min')) {
+                if (type === 'minus') {
+                    if (currentVal > minVal) {
                         input.val(currentVal - 1).change();
                     }
-                    if (parseInt(input.val()) == input.attr('min')) {
-                        $(this).attr('disabled', true);
+                    if (parseInt(input.val()) === minVal) {
+                        $(element).attr('disabled', true);
+                        $(element).siblings("[data-type='plus']").attr('disabled', false);
                     }
-
-                } else if (type == 'plus') {
-
-                    if (currentVal < input.attr('max')) {
+                } else if (type === 'plus') {
+                    if (currentVal < maxVal) {
                         input.val(currentVal + 1).change();
                     }
-                    if (parseInt(input.val()) == input.attr('max')) {
-                        $(this).attr('disabled', true);
+                    if (parseInt(input.val()) === maxVal) {
+                        $(element).attr('disabled', true);
+                        $(element).siblings("[data-type='minus']").attr('disabled', false);
                     }
-
                 }
             } else {
                 input.val(0);
             }
-        });
+        }
         $('.input-number').change(function() {
             minValue = parseInt($(this).attr('min'));
             maxValue = parseInt($(this).attr('max'));
@@ -742,81 +750,81 @@
 
         });
 
-        function cartQuantityInitialize() {
-            $('.btn-number').click(function(e) {
+        // function cartQuantityInitialize() {
+        //     $('.btn-number').click(function(e) {
 
-                e.preventDefault();
-                fieldName = $(this).attr('data-field');
-                type = $(this).attr('data-type');
-                var input = $("input[name='" + fieldName + "']");
-                var currentVal = parseInt(input.val());
+        //         e.preventDefault();
+        //         fieldName = $(this).attr('data-field');
+        //         type = $(this).attr('data-type');
+        //         var input = $("input[name='" + fieldName + "']");
+        //         var currentVal = parseInt(input.val());
 
-                if (!isNaN(currentVal)) {
-                    if (type == 'minus') {
+        //         if (!isNaN(currentVal)) {
+        //             if (type == 'minus') {
 
-                        if (currentVal > input.attr('min')) {
-                            input.val(currentVal - 1).change();
-                        }
-                        if (parseInt(input.val()) == input.attr('min')) {
-                            $(this).attr('disabled', true);
-                        }
+        //                 if (currentVal > input.attr('min')) {
+        //                     input.val(currentVal - 1).change();
+        //                 }
+        //                 if (parseInt(input.val()) == input.attr('min')) {
+        //                     $(this).attr('disabled', true);
+        //                 }
 
-                    } else if (type == 'plus') {
+        //             } else if (type == 'plus') {
 
-                        if (currentVal < input.attr('max')) {
-                            input.val(currentVal + 1).change();
-                        }
-                        if (parseInt(input.val()) == input.attr('max')) {
-                            $(this).attr('disabled', true);
-                        }
+        //                 if (currentVal < input.attr('max')) {
+        //                     input.val(currentVal + 1).change();
+        //                 }
+        //                 if (parseInt(input.val()) == input.attr('max')) {
+        //                     $(this).attr('disabled', true);
+        //                 }
 
-                    }
-                } else {
-                    input.val(0);
-                }
-            });
+        //             }
+        //         } else {
+        //             input.val(0);
+        //         }
+        //     });
 
-            $('.input-number').focusin(function() {
-                $(this).data('oldValue', $(this).val());
-            });
+        //     $('.input-number').focusin(function() {
+        //         $(this).data('oldValue', $(this).val());
+        //     });
 
-            $('.input-number').change(function() {
-                minValue = parseInt($(this).attr('min'));
-                maxValue = parseInt($(this).attr('max'));
-                valueCurrent = parseInt($(this).val());
+        //     $('.input-number').change(function() {
+        //         minValue = parseInt($(this).attr('min'));
+        //         maxValue = parseInt($(this).attr('max'));
+        //         valueCurrent = parseInt($(this).val());
 
-                name = $(this).attr('name');
-                if (valueCurrent >= minValue) {
-                    $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-                } else {
-                    alert('Sorry, the minimum value was reached');
-                    $(this).val($(this).data('oldValue'));
-                }
-                if (valueCurrent <= maxValue) {
-                    $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-                } else {
-                    alert('Sorry, the maximum value was reached');
-                    $(this).val($(this).data('oldValue'));
-                }
+        //         name = $(this).attr('name');
+        //         if (valueCurrent >= minValue) {
+        //             $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+        //         } else {
+        //             alert('Sorry, the minimum value was reached');
+        //             $(this).val($(this).data('oldValue'));
+        //         }
+        //         if (valueCurrent <= maxValue) {
+        //             $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+        //         } else {
+        //             alert('Sorry, the maximum value was reached');
+        //             $(this).val($(this).data('oldValue'));
+        //         }
 
 
-            });
-            $(".input-number").keydown(function(e) {
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-                    // Allow: Ctrl+A
-                    (e.keyCode == 65 && e.ctrlKey === true) ||
-                    // Allow: home, end, left, right
-                    (e.keyCode >= 35 && e.keyCode <= 39)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                // Ensure that it is a number and stop the keypress
-                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-        }
+        //     });
+        //     $(".input-number").keydown(function(e) {
+        //         // Allow: backspace, delete, tab, escape, enter and .
+        //         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+        //             // Allow: Ctrl+A
+        //             (e.keyCode == 65 && e.ctrlKey === true) ||
+        //             // Allow: home, end, left, right
+        //             (e.keyCode >= 35 && e.keyCode <= 39)) {
+        //             // let it happen, don't do anything
+        //             return;
+        //         }
+        //         // Ensure that it is a number and stop the keypress
+        //         if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        //             e.preventDefault();
+        //         }
+        //     });
+        // }
 
         function imageInputInitialize() {
             $('.custom-input-file').each(function() {
@@ -900,7 +908,7 @@
             }
         });
     </script>
-
+     @stack('script')
 </body>
 
 </html>

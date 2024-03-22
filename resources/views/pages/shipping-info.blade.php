@@ -1,0 +1,374 @@
+@extends('layout.app')
+@section('title', 'Cart')
+@section('content')
+    
+    <section class="slice-xs sct-color-2 border-bottom">
+        <div class="container container-sm">
+            <div class="row cols-delimited justify-content-center">
+                <div class="col">
+                    <div class="icon-block icon-block--style-1-v5 text-center active">
+                        <div class="block-icon mb-0">
+                            <i class="la la-shopping-cart"></i>
+                        </div>
+                        <div class="block-content d-none d-md-block">
+                            <h3 class="heading heading-sm strong-300 c-gray-light text-capitalize">1. My Cart</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="icon-block icon-block--style-1-v5 text-center active">
+                        <div class="block-icon mb-0">
+                            <i class="la la-map-o"></i>
+                        </div>
+                        <div class="block-content d-none d-md-block">
+                            <h3 class="heading heading-sm strong-300 c-gray-light text-capitalize">2. Shipping info</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="icon-block icon-block--style-1-v5 text-center">
+                        <div class="block-icon c-gray-light mb-0">
+                            <i class="la la-credit-card"></i>
+                        </div>
+                        <div class="block-content d-none d-md-block">
+                            <h3 class="heading heading-sm strong-300 c-gray-light text-capitalize">3. Payment</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="icon-block icon-block--style-1-v5 text-center">
+                        <div class="block-icon c-gray-light mb-0">
+                            <i class="la la-check-circle"></i>
+                        </div>
+                        <div class="block-content d-none d-md-block">
+                            <h3 class="heading heading-sm strong-300 c-gray-light text-capitalize">4. Confirmation</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-4 gry-bg" id="">
+        @if (count($carts) > 0)
+            <div class="container">
+                <div class="row cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-xl-8">
+                        <!-- <form class="form-default bg-white p-4" data-toggle="validator" role="form"> -->
+                        <div class="form-default bg-white p-4">
+                            <div class="">
+                                <div class="table-responsive">
+                                    <table class="table-cart border-bottom" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-image">Img</th>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-price d-lg-table-cell">Price</th>
+                                                <th class="product-quanity d-md-table-cell">Quantity</th>
+                                                <th class="product-total">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($carts as $cart)
+                                                @php
+                                                    $images = explode(',', $cart['product']['image']);
+                                                    $subtotal = $cart['price'] * $cart['quantity'];
+                                                @endphp
+                                                <tr class="cart-item">
+                                                    <td class="product-image">
+                                                        <a href="#" class="mr-3">
+                                                            <img loading="lazy"
+                                                                src="{{ $images[0] ? env('APPI_URL') . '/images/product/' . $images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                                data-src="{{ $images[0] ? env('APPI_URL') . '/images/product/' . $images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}">
+                                                        </a>
+                                                    </td>
+
+                                                    <td class="product-name">
+                                                        <span class="pr-4 d-block">{{ $cart['product']['name'] }}
+                                                            {{ $cart['variant'] ? '- ' . $cart['variant'] : '' }}</span>
+                                                    </td>
+
+                                                    <td class="product-price d-lg-table-cell">
+                                                        <span
+                                                            class="pr-3 d-block">৳{{ number_format($cart['price'], 0, '.', ',') }}</span>
+                                                    </td>
+
+                                                    <td class="product-quantity d-md-table-cell">
+                                                        <span
+                                                            class="pr-3 d-block">{{ $cart['quantity'] }}</span>
+                                                    </td>
+                                                    <td class="product-total">
+                                                        <span>৳{{ number_format($subtotal, 0, '.', ',') }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="d-none d-md-block">
+                                <form action="">
+                                    @csrf
+                                    <div class="row pt-4">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Shipping Name</label>
+                                                <input type="text" name="shipping_name" class="form-control h-auto form-control-lg " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Shipping Phone</label>
+                                                <input type="text" name="shopping_phone" class="form-control h-auto form-control-lg " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="{{ route('cart') }}" class="link link--style-3">
+                                                <i class="la la-mail-reply"></i>
+                                                Return to cart
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button type="submit" class="btn btn-styled btn-success">Add
+                                                Delivery Info</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+
+                    <div class="col-xl-4 ml-lg-auto">
+                        <div class="card sticky-top" style="">
+                            <div class="card-title py-3">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <h3 class="heading heading-3 strong-400 mb-0">
+                                            <span>Summary</span>
+                                        </h3>
+                                    </div>
+
+                                    <div class="col-6 text-right">
+                                        <span class="badge badge-md badge-success">{{ $qty }} Items</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <table class="table-cart table-cart-review">
+                                    <tfoot>
+                                        <tr class="cart-subtotal">
+                                            <th>Subtotal</th>
+                                            <td class="text-right">
+                                                <span class="strong-600">৳{{ number_format($total, 0, '.', ',') }}</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="cart-shipping">
+                                            <th>VAT (5%)</th>
+                                            <td class="text-right">
+                                                <span class="text-italic">৳{{ number_format($vat, 0, '.', ',') }}</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="cart-shipping">
+                                            <th>Total Shipping</th>
+                                            <td class="text-right">
+                                                <span class="text-italic"
+                                                    id="shipping_price">৳{{ number_format($shipping_cost, 0, '.', ',') }}</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="cart-total">
+                                            <th><span class="strong-600">Total</span></th>
+                                            <td class="text-right">
+                                                <strong><span
+                                                        id="subtotal">৳{{ number_format($total + $vat + $shipping_cost, 0, '.', ',') }}</span></strong>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+
+                                <div class="mt-3 ">
+
+                                    <div class="form-group flex-grow-1">
+                                        <input type="text" class="form-control w-100" name="code" id="code"
+                                            placeholder="Have coupon code? Enter here">
+                                    </div>
+                                    <a class="log-out-btn" href="#" id="couponbutton btn btn-primary"
+                                        style="border: 1px solid;padding: 7px 16px;color: #fff;background-color: #ed4c67;font-size: 15px;font-weight: 600;border-radius: 3px;"
+                                        onclick="event.preventDefault();document.getElementById('apply_coupon').submit();">
+                                        Apply </a>
+
+                                    <!--<button type="button" class="btn btn-base-1 apply_coupon" id="couponbutton" >Apply</button>-->
+                                    <!--</form>-->
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-md-none d-xs-block" style="display:block;">
+                    <div class="row pt-4">
+                        <div class="col-md-6">
+                            <a href="{{ route('cart') }}" class="link link--style-3">
+                                <i class="la la-mail-reply"></i>
+                                Return to cart
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button class="btn btn-styled btn-success" onclick="showCheckoutModal()">Add Delivery
+                                Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+            <div class="container">
+                <div class="dc-header">
+                    <h3 class="heading heading-6 strong-700">Your Cart is empty</h3>
+                </div>
+            </div>
+        @endif
+
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="GuestCheckout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-zoom" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Login</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-3">
+                        <form class="form-default" role="form" action="https://dorjibari.com.bd/users/login/cart"
+                            method="POST">
+                            <input type="hidden" name="_token" value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd">
+                            <span>Use
+                                country code before number</span>
+                            <div class="form-group">
+                                <input type="text" class="form-control h-auto form-control-lg " value=""
+                                    placeholder="Email Or Phone" name="email" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control h-auto form-control-lg"
+                                    placeholder="Password">
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <a href="password/reset.html" class="link link-xs link--style-3">Forgot password?</a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-styled btn-base-1 px-4">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="text-center pt-3">
+                        <p class="text-md">
+                            Need an account? <a href="users/registration.html" class="strong-600">Register Now</a>
+                        </p>
+                    </div>
+                    <div class="or or--1 mt-0 text-center">
+                        <span>Or</span>
+                    </div>
+                    <div class="text-center">
+                        <a href="cart.html" class="btn btn-styled btn-base-1">Guest Checkout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @push('script')
+        <script type="text/javascript">
+            function removeFromCartView(e, key){
+                e.preventDefault();
+                removeFromCart(key);
+            }
+
+            $('.btn-number').click(function() {
+                var fieldName = $(this).attr('data-field');
+                var type = $(this).attr('data-type');
+                var input = $("input[name='" + fieldName + "']");
+                var currentVal = parseInt(input.val());
+                var minVal = parseInt(input.attr('min'));
+                var maxVal = parseInt(input.attr('max'));
+
+                if (!isNaN(currentVal)) {
+                    if (type === 'minus') {
+                        if (currentVal > minVal) {
+                            input.val(currentVal - 1).change();
+                        }
+                        if (parseInt(input.val()) === minVal) {
+                            $(this).attr('disabled', true);
+                            $(this).siblings("[data-type='plus']").attr('disabled', false);
+                        }
+                    } else if (type === 'plus') {
+                        if (currentVal < maxVal) {
+                            input.val(currentVal + 1).change();
+                        }
+                        if (parseInt(input.val()) === maxVal) {
+                            $(this).attr('disabled', true);
+                            $(this).siblings("[data-type='minus']").attr('disabled', false);
+                        }
+                    }
+                } else {
+                    input.val(0);
+                }
+            })
+
+            function clickBtnUpdateCart(key, qty){
+                $.get("{{route('update.cart')}}", {  
+                    key:key, 
+                    quantity: qty
+                }, function(data){
+                    updateNavCart();
+                    getCartSummary();
+                });
+            }
+
+            function updateQuantity(key, element){
+                $.get("{{route('update.cart')}}", {  
+                    key:key, 
+                    quantity: element.value
+                }, function(data){
+                    updateNavCart();
+                    getCartSummary();
+                });
+            }
+
+            
+            getCartSummary();
+            
+            $(function(){
+                $('#code').on("input", function() {
+                    var dInput = this.value;
+                    $('#code1').val(dInput);
+                });
+                
+            });   
+
+            function showCheckoutModal(){
+                $('#GuestCheckout').modal();
+            }
+        </script>
+    @endpush
+@endsection

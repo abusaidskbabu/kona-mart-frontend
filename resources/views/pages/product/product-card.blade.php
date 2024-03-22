@@ -3,8 +3,9 @@
         <div class="card-image">
             <a href=""
                 class="d-block">
-                <img class="img-fit lazyload mx-auto" src="{{ ($product->image) ? env('APPI_URL').'/images/product/'.$product->image : asset('assets/frontend/images/placeholder-product.jpg') }}"
-                    data-src="{{ ($product->image) ? env('APPI_URL').'/images/product/'.$product->image : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                <?php $images = explode(",", $product->image)?>
+                <img class="img-fit lazyload mx-auto" src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
                     alt="{{ $product->name }} Fit_Solid_188#2">
             </a>
         </div>

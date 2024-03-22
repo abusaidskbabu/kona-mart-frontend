@@ -101,14 +101,5 @@
 </div>
 
 <div class="sidemenu cart">
-    <span class="close_cart">x</span>
-    <ul>
-        <li>
-            <div class="dropdown-cart px-0">
-                <div class="dc-header">
-                    <h3 class="heading heading-6 strong-700">Your Cart is empty</h3>
-                </div>
-            </div>
-        </li>
-    </ul>
+    
 </div>
