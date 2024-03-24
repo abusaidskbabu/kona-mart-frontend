@@ -468,6 +468,8 @@
             $.get("{{ route('get.cart') }}", {
             }, function(data) {
                 $('#cart_items .nav-box-number').html(data.qty);
+                $('.footer_cart_items_sidenav').html(data.qty);
+                $('.leftbar_cart_items_sidenav').html(data.qty);
                 $(".sidemenu.cart").html(data.cart);
 
             });
@@ -607,6 +609,8 @@
                         $('#addToCart-modal-body').html(data);
                         updateNavCart();
                         $('#cart_items_sidenav').html(parseInt($('#cart_items_sidenav').html()) + 1);
+                        $('.footer_cart_items_sidenav').html(parseInt($('.footer_cart_items_sidenav').html()) + 1);
+                        $('.leftbar_cart_items_sidenav').html(parseInt($('.leftbar_cart_items_sidenav').html()) + 1);
                     }
                 });
             } else {

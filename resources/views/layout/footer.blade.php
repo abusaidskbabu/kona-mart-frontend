@@ -191,7 +191,7 @@
             </a>
             <a href="#!" class="flex-grow-1 text-center py-3 border-right toggle_cart_bar">
                 <img src="{{ asset('assets/frontend/images/menubar/cart11.png') }}" width="50">
-                <span class="badge" id="cart_items_sidenav">0</span>
+                <span class="badge footer_cart_items_sidenav" id="cart_items_sidenav">0</span>
             </a>
 
             <a href="#!" class="text-reset flex-grow-1 text-center py-2 toggle_userpanel_bar">

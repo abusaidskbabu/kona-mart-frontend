@@ -107,7 +107,7 @@
                             <a href="cart.html" class="nav-link">
                                 <i class="la la-shopping-cart"></i>
                                 <span>Cart</span>
-                                <span class="badge" id="cart_items_sidenav">0</span>
+                                <span class="badge leftbar_cart_items_sidenav" id="cart_items_sidenav">0</span>
                             </a>
                         </li>
                         <li class="nav-item">
