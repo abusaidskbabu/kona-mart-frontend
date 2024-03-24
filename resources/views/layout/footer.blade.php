@@ -178,14 +178,14 @@
     <!--mobile menu bar-->
     <div class="aiz-mobile-bottom-nav fixed-bottom bg-white shadow-lg border-top">
         <div class="d-flex justify-content-around align-items-center">
-            <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary ">
+            <a href="/" class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary ">
                 <img src="{{ asset('assets/frontend/images/menubar/Home2.png') }}" width="50">
             </a>
             <a href="#!"
                 class="text-reset flex-grow-1 text-center py-3 border-right bg-soft-primary toggle_mobilemenu_bar">
                 <img src="{{ asset('assets/frontend/images/menubar/Categories.png') }}" width="50">
             </a>
-            <a href="index.html" class="text-reset flex-grow-1 text-center py-3 border-right position-relative">
+            <a href="/" class="text-reset flex-grow-1 text-center py-3 border-right position-relative">
                 <span class="mobile-menubar-logo"><img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}"
                         width="60"></span>
             </a>

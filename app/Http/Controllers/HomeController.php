@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Add;
+use App\District;
 use App\HomSection;
+use App\Order;
+use App\OrderDetails;
 use App\Product;
 use App\ProductVariant;
 use App\Slider;
 use App\ThumbnailSlider;
+use App\Upazila;
 use App\Variant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -234,7 +241,182 @@ class HomeController extends Controller
             }
         }
         $carts = $cartlistItems;
+        $districts = District::orderBy('title', 'asc')->get();
 
-        return view('pages.shipping-info', compact('carts', 'total', 'qty', 'shipping_cost', 'vat'));
+        if ($request->session()->has('shipping_info')) {
+            $shippingInfo = $request->session()->get('shipping_info');
+        } else {
+            $shippingInfo = [];
+        }
+
+        return view('pages.shipping-info', compact('carts', 'total', 'qty', 'shipping_cost', 'vat', 'districts', 'shippingInfo'));
+    }
+
+    public function getThana(Request $request){
+        $id = $request->id;
+        $html = '';
+        if($id){
+            $upazilas = Upazila::where('district_id', $id)->get();
+            foreach($upazilas as $upazila){
+                $html .= '<option value="'.$upazila->id.'">'.$upazila->title.'</option>';
+            }
+        }
+        return $html;
+    }
+
+    public function shippingInfoAdd(Request $request){
+        $validator = Validator::make($request->all(), [
+            'shipping_name' => 'required|string|max:255',
+            'shipping_phone' => 'required|string|max:15',
+            'shipping_district' => 'required',
+            'shipping_thana' => 'required',
+            'address' => 'required',
+        ]);
+        
+        if ($request->session()->has('shipping_info')) {
+            $shippingInfo = $request->session()->get('shipping_info');
+        } else {
+            $shippingInfo = [];
+        }
+
+        // Store shipping information
+        $shippingInfo = [
+            'shipping_name' => $request->input('shipping_name'),
+            'shipping_phone' => $request->input('shipping_phone'),
+            'shipping_district' => $request->input('shipping_district'),
+            'shipping_thana' => $request->input('shipping_thana'),
+            'address' => $request->input('address'),
+            'note' => $request->input('note')
+        ];
+
+        $request->session()->put('shipping_info', $shippingInfo);
+
+        $cartlist = $request->session()->get('cartlist');
+
+        return redirect()->route('checkout');
+    }
+
+    public function checkout(Request $request){
+        $cartlist = $request->session()->get('cartlist', []);
+        $productIds = array_keys($cartlist);
+        $products = Product::whereIn('id', $productIds)->get();
+
+        $cartlistItems = [];
+        $total = 0;
+        $qty = 0;
+        $shipping_cost = 0;
+        $vat = 0;
+        foreach ($products as $product) {
+            $productId = $product->id;
+            if (isset($cartlist[$productId]) && is_array($cartlist[$productId])) {
+                $quantity = $cartlist[$productId]['quantity'];
+                $variant = $cartlist[$productId]['variant'] ?? '';
+                $price = $cartlist[$productId]['price'];
+                $total = $total + ($price * $quantity);
+                $cartlistItems[] = [
+                    'product' => $product,
+                    'quantity' => $quantity,
+                    'price' => $price,
+                    'variant' => $variant
+                ];
+                $qty++;
+            }
+        }
+        $carts = $cartlistItems;
+        $districts = District::orderBy('title', 'asc')->get();
+
+        if ($request->session()->has('shipping_info')) {
+            $shippingInfo = $request->session()->get('shipping_info');
+        } else {
+            $shippingInfo = [];
+        }
+
+        return view('pages.checkout', compact('carts', 'total', 'qty', 'shipping_cost', 'vat', 'districts', 'shippingInfo'));
+    }
+
+    public function cashonDelivery(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $cartlist = $request->session()->get('cartlist', []);
+            $productIds = array_keys($cartlist);
+            $products = Product::whereIn('id', $productIds)->get();
+
+            $cartlistItems = [];
+            $total = 0;
+            $qty = 0;
+            $shipping_cost = 0;
+            $vat = 0;
+            $discount = 0;
+            foreach ($products as $product) {
+                $productId = $product->id;
+                if (isset($cartlist[$productId]) && is_array($cartlist[$productId])) {
+                    $quantity = $cartlist[$productId]['quantity'];
+                    $variant = $cartlist[$productId]['variant'] ?? '';
+                    $price = $cartlist[$productId]['price'];
+                    $total = $total + ($price * $quantity);
+                    $cartlistItems[] = [
+                        'product' => $product,
+                        'quantity' => $quantity,
+                        'price' => $price,
+                        'variant' => $variant
+                    ];
+                    $qty++;
+                }
+            }
+
+            $carts = $cartlistItems;
+            $shippingInfo = $request->session()->get('shipping_info');
+
+            $order = new Order();
+            $order->type = 'cash on delivery';
+            $order->customer_id = Auth::user()->id ?? null;
+            $order->user_id = Auth::user()->id ?? null;
+            $order->sub_total = $total;
+            $order->shipping_charge = $shipping_cost;
+            $order->qty = $qty;
+            $order->amount = $total;
+            $order->discounted_amount = $discount;
+            $order->address = $shippingInfo['address'];
+            $order->shipping_name = $shippingInfo['shipping_name'];
+            $order->shipping_phone_number = $shippingInfo['shipping_phone'];
+            $order->shipping_district = $shippingInfo['shipping_district'];
+            $order->shipping_city = $shippingInfo['shipping_thana'];
+            $order->notes = $shippingInfo['note'];
+            $order->currency = "BDT";
+            $order->status = 0;
+            $order->save();
+
+            foreach ($carts as $cart) {
+                $subtotal = $cart['price'] * $cart['quantity'];
+                $orderDetails = new OrderDetails();
+                $orderDetails->order_id = $order->id;
+                $orderDetails->product_id = $cart['product']['id'];
+                $orderDetails->variant_id = $cart['variant'];
+                $orderDetails->color_id = null;
+                $orderDetails->size_id = null;
+                $orderDetails->weight_id = null;
+                $orderDetails->count = $cart['quantity'];
+                $orderDetails->amount = $cart['price'];
+                $orderDetails->save();
+            }
+
+            $request->session()->forget('cartlist');
+            $request->session()->forget('shipping_info');
+
+            DB::commit();
+
+            return redirect()->route('order.invoice', $order->id)->with('success', 'Order placed successfully!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Failed to place order. Please try again later.');
+        }
+    }
+
+    public function invoice($order_id){
+        $order = Order::find($order_id);
+       
+        return view('pages.invoice', compact('order'));
     }
 }

@@ -14,14 +14,14 @@
 
                         <div class="px-5 py-3 py-lg-4">
                             <div class="">
-                                <form class="form-default" role="form" action="https://dorjibari.com.bd/login"
+                                <form class="form-default" role="form" action="{{ route('authenticate')}}"
                                     method="POST">
-                                    <input type="hidden" name="_token"
-                                        value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd"> <span>Use country code before
+                                    @csrf
+                                        <span>Use country code before
                                         number <span style="color:red;">+8801XXX</span></span>
                                     <div class="form-group">
                                         <input type="text" class="form-control h-auto form-control-lg "
-                                            value="" placeholder="Email Or Phone (+8801)" name="email"
+                                            value="" placeholder="Email Or Phone (+8801)" name="phone"
                                             id="email">
                                     </div>
 
@@ -43,7 +43,7 @@
                                             </div>
                                         </div>
                                         <div class="col-6 text-right">
-                                            <a href="password/reset.html" class="link link-xs link--style-3">Forgot
+                                            <a href="" class="link link-xs link--style-3">Forgot
                                                 password?</a>
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="text-center px-35 pb-3">
                             <p class="text-md">
-                                Need an account? <a href="users/registration.html" class="strong-600">Register Now</a>
+                                Need an account? <a href="{{ route('signup') }}" class="strong-600">Register Now</a>
                             </p>
                         </div>
                     </div>

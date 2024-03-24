@@ -19,10 +19,10 @@
                             <a href="track_your_order.html" class="top-bar-item">Track Order</a>
                         </li>
                         <li>
-                            <a href="users/login.html" class="top-bar-item">Login</a>
+                            <a href="{{ route('login') }}" class="top-bar-item">Login</a>
                         </li>
                         <li>
-                            <a href="users/registration.html" class="top-bar-item">Registration</a>
+                            <a href="{{ route('signup') }}" class="top-bar-item">Registration</a>
                         </li>
                     </ul>
                 </div>
@@ -46,8 +46,8 @@
                             style="background-image:url('public/frontend/images/icons/user-placeholder.jpg')"></div>
                     </div>
                     <div class="side-login px-3 pb-3">
-                        <a href="users/login.html">Sign In</a>
-                        <a href="users/registration.html">Registration</a>
+                        <a href="{{ route('login') }}">Sign In</a>
+                        <a href="{{ route('signup') }}">Registration</a>
                     </div>
                 </div>
                 <div class="side-menu-list px-3">
@@ -299,18 +299,13 @@
                             @empty
                             @endforelse
 
-                            <li>
+                            {{-- <li>
                                 <a href="category/eid-collection.html" style="color: rgb(255, 255, 0);"> <strong style="Color:#c52032;"> EID COLLECTION'24 </strong></a>
                                 <ul>
 
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li>
-                                <a href="index.html"> <strong style="color:; font-weigh "> OUR HISTORY </strong></a>
-                                <ul>
-                                </ul>
-                            </li>
                         </ul>
 
                         <!-- end drop down menu-->

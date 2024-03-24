@@ -1,7 +1,7 @@
 @extends('layout.app')
-@section('title', 'Cart')
+@section('title', 'Checkout')
 @section('content')
-    
+
     <section class="slice-xs sct-color-2 border-bottom">
         <div class="container container-sm">
             <div class="row cols-delimited justify-content-center">
@@ -27,8 +27,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="icon-block icon-block--style-1-v5 text-center">
-                        <div class="block-icon c-gray-light mb-0">
+                    <div class="icon-block icon-block--style-1-v5 text-center active">
+                        <div class="block-icon mb-0">
                             <i class="la la-credit-card"></i>
                         </div>
                         <div class="block-content d-none d-md-block">
@@ -97,8 +97,7 @@
                                                     </td>
 
                                                     <td class="product-quantity d-md-table-cell">
-                                                        <span
-                                                            class="pr-3 d-block">{{ $cart['quantity'] }}</span>
+                                                        <span class="pr-3 d-block">{{ $cart['quantity'] }}</span>
                                                     </td>
                                                     <td class="product-total">
                                                         <span>৳{{ number_format($subtotal, 0, '.', ',') }}</span>
@@ -120,65 +119,13 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <form action="{{ route('shipping.info.add') }}" method="post" >
-                                    @csrf
-                                    <div class="row pt-4">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Shipping Name</label>
-                                                <input type="text" name="shipping_name" value="{{ $shippingInfo['shipping_name'] ?? old('shipping_name') }}" class="form-control h-auto form-control-lg " required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Shipping Phone</label>
-                                                <input type="text" name="shipping_phone"  value="{{ $shippingInfo['shopping_phone'] ?? old('shopping_phone') }}" class="form-control h-auto form-control-lg " required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Shipping District</label>
-                                                <select name="shipping_district" id="shipping_district" class="form-control h-auto form-control-lg " required>
-                                                    <option value="">-- Select --</option>
-                                                    @foreach ($districts as $district)
-                                                        <option @if($shippingInfo['shopping_phone'] ?? old('shopping_phone') == $district->id) selected  @endif value="{{ $district->id }}">{{ $district->title }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Shipping Thana</label>
-                                                <select name="shipping_thana" id="shipping_thana" class="form-control h-auto form-control-lg " required>
-                                                    <option value="">-- Select --</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Address</label>
-                                                <input type="text"  value="{{ $shippingInfo['address'] ?? old('address') }}" name="address" class="form-control h-auto form-control-lg " required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Note</label>
-                                                <input type="text" name="note"  value="{{ $shippingInfo['note'] ?? old('note') }}" class="form-control h-auto form-control-lg ">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <a href="{{ route('cart') }}" class="link link--style-3">
-                                                <i class="la la-mail-reply"></i>
-                                                Return to cart
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6 text-right">
-                                            <button type="submit" class="btn btn-styled btn-success">Add
-                                                Payment Info</button>
-                                        </div>
+                                <div class="row pt-4">
+                                    <div class="col-md-12 text-right">
+                                        <a href="" class="btn btn-styled btn-success">Online Payment</a>
+                                        <a href="{{ route('cash.on.delivery') }}" class="btn btn-styled btn-success">Cash on Delivery</a>
                                     </div>
-                                </form>
+                                </div>
+                                
                             </div>
                         </div>
                         <!-- </form> -->
@@ -201,6 +148,57 @@
                             </div>
 
                             <div class="card-body">
+                                <table class="table-cart table-cart-review">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Shipping Details</th>
+                                            <th class="product-total text-right"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item">
+                                            <td class="product-name pt-1 pb-0">
+                                                <strong >Name:</strong>
+                                            </td>
+                                            <td class="product-total text-right pt-1 pb-0">
+                                                <span class="pl-4">{{ $shippingInfo['shipping_name'] }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart_item">
+                                            <td class="product-name pt-1 pb-0">
+                                                <strong >Phone:</strong>
+                                            </td>
+                                            <td class="product-total text-right pt-1 pb-0">
+                                                <span class="pl-4">{{ $shippingInfo['shipping_phone'] }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart_item">
+                                            <td class="product-name pt-1 pb-0">
+                                                <strong >District:</strong>
+                                            </td>
+                                            <td class="product-total text-right pt-1 pb-0">
+                                                <span class="pl-4">{{ App\District::find($shippingInfo['shipping_district'])->title ?? '' }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart_item">
+                                            <td class="product-name pt-1 pb-0">
+                                                Thana:
+                                            </td>
+                                            <td class="text-right pt-1 pb-0">
+                                                <span class="pl-4">{{ App\Upazila::find($shippingInfo['shipping_thana'])->title ?? '' }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart_item">
+                                            <td class="product-name pt-1 pb-0">
+                                                Address:
+                                            </td>
+                                            <td class="text-right pt-1 pb-0">
+                                                <span class="pl-4">{{ $shippingInfo['address'] ?? '' }}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr>
                                 <table class="table-cart table-cart-review">
                                     <tfoot>
                                         <tr class="cart-subtotal">
@@ -255,22 +253,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                {{-- <div class="d-md-none d-xs-block" style="display:block;">
-                    <div class="row pt-4">
-                        <div class="col-md-6">
-                            <a href="{{ route('cart') }}" class="link link--style-3">
-                                <i class="la la-mail-reply"></i>
-                                Return to cart
-                            </a>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <button class="btn btn-styled btn-success" onclick="showCheckoutModal()">Add Delivery
-                                Info</button>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         @else
             <div class="container">
@@ -340,14 +323,14 @@
 
     @push('script')
         <script type="text/javascript">
-            function removeFromCartView(e, key){
+            function removeFromCartView(e, key) {
                 e.preventDefault();
                 removeFromCart(key);
             }
 
             $('#shipping_district').change(function() {
                 let id = $(this).find('option:selected').val();
-                if(id != ''){
+                if (id != '') {
                     $.ajax({
                         url: "{{ route('get.thana') }}",
                         method: 'GET',
@@ -396,38 +379,38 @@
                 }
             })
 
-            function clickBtnUpdateCart(key, qty){
-                $.get("{{route('update.cart')}}", {  
-                    key:key, 
+            function clickBtnUpdateCart(key, qty) {
+                $.get("{{ route('update.cart') }}", {
+                    key: key,
                     quantity: qty
-                }, function(data){
+                }, function(data) {
                     updateNavCart();
                     getCartSummary();
                 });
             }
 
-            function updateQuantity(key, element){
-                $.get("{{route('update.cart')}}", {  
-                    key:key, 
+            function updateQuantity(key, element) {
+                $.get("{{ route('update.cart') }}", {
+                    key: key,
                     quantity: element.value
-                }, function(data){
+                }, function(data) {
                     updateNavCart();
                     getCartSummary();
                 });
             }
 
-            
+
             getCartSummary();
-            
-            $(function(){
+
+            $(function() {
                 $('#code').on("input", function() {
                     var dInput = this.value;
                     $('#code1').val(dInput);
                 });
-                
-            });   
 
-            function showCheckoutModal(){
+            });
+
+            function showCheckoutModal() {
                 $('#GuestCheckout').modal();
             }
         </script>

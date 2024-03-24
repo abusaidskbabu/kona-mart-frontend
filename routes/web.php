@@ -24,3 +24,16 @@ Route::get('/remove-from-cart', 'HomeController@removeCart')->name('remove.cart'
 Route::get('/update-cart-summary', 'HomeController@updateCartSummary')->name('update.cart.summary');
 Route::get('/update-cart', 'HomeController@updateCart')->name('update.cart');
 Route::get('/shipping-info', 'HomeController@shippingInfo')->name('shipping.info');
+Route::get('/get-thana', 'HomeController@getThana')->name('get.thana');
+Route::post('/shipping-info-store', 'HomeController@shippingInfoAdd')->name('shipping.info.add');
+Route::get('/checkout', 'HomeController@checkout')->name('checkout');
+
+Route::get('/cash-on-delivery', 'HomeController@cashonDelivery')->name('cash.on.delivery');
+Route::get('/invoice/{order_id}', 'HomeController@invoice')->name('order.invoice');
+
+Route::get('/signup', 'AuthController@signup')->name('signup');
+Route::post('/signup-store', 'AuthController@signupStore')->name('signup.store');
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/authenticate', 'AuthController@authenticate')->name('authenticate');
+
+Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
