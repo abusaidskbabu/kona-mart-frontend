@@ -14,7 +14,7 @@ class Order extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->tracking_no = 'KM' . Carbon::now()->timestamp . $model->id;
+            $model->traking_no = 'KM' . Carbon::now()->timestamp . $model->id;
         });
     }
 

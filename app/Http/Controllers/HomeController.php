@@ -336,6 +336,7 @@ class HomeController extends Controller
 
     public function cashonDelivery(Request $request)
     {
+        // exit;
         try {
             DB::beginTransaction();
 
@@ -410,7 +411,8 @@ class HomeController extends Controller
             return redirect()->route('order.invoice', $order->id)->with('success', 'Order placed successfully!');
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->with('error', 'Failed to place order. Please try again later.');
+            return $e;
+            // return redirect()->back()->withErrors('error', 'Failed to place order. Please try again later.');
         }
     }
 
