@@ -78,14 +78,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="p-3">
-                        <form class="form-default" role="form" action="https://dorjibari.com.bd/users/login/cart"
+                        <form class="form-default" role="form" action="{{ route('authenticate') }}"
                             method="POST">
-                            <input type="hidden" name="_token" value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd">
+                            @csrf
                             <span>Use
                                 country code before number</span>
                             <div class="form-group">
                                 <input type="text" class="form-control h-auto form-control-lg " value=""
-                                    placeholder="Email Or Phone" name="email" id="email">
+                                    placeholder="Email Or Phone" name="phone_number" id="email">
                             </div>
 
                             <div class="form-group">
@@ -106,14 +106,14 @@
                     </div>
                     <div class="text-center pt-3">
                         <p class="text-md">
-                            Need an account? <a href="users/registration.html" class="strong-600">Register Now</a>
+                            Need an account? <a href="{{ route('signup') }}" class="strong-600">Register Now</a>
                         </p>
                     </div>
                     <div class="or or--1 mt-0 text-center">
                         <span>Or</span>
                     </div>
                     <div class="text-center">
-                        <a href="cart.html" class="btn btn-styled btn-base-1">Guest Checkout</a>
+                        <a href="{{ route('shipping.info') }}" class="btn btn-styled btn-base-1">Guest Checkout</a>
                     </div>
 
                 </div>
