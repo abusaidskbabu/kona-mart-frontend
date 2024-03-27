@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Add;
+use App\Category;
 use App\District;
 use App\HomSection;
 use App\Order;
@@ -17,6 +18,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Facade\FlareClient\View;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -418,7 +421,56 @@ class HomeController extends Controller
 
     public function invoice($order_id){
         $order = Order::find($order_id);
-       
         return view('pages.invoice', compact('order'));
+    }
+
+    public function products(Request $request){
+        
+        $category = Category::where('slug', $request->category)->first();
+        $products = Product::where('is_active', 1);
+        if($request->category){
+            $products->where('category_id', $category->id);
+        }
+
+        if($request->search_text){
+            $products->where('name', 'like', '%'.$request->search_text.'%');
+        }
+
+        if($request->min_price && $request->max_price){
+            $products->whereBetween('price', [$request->min_price, $request->max_price]);
+        }
+
+        if ($request->sort_by) {
+            $products->when($request->sort_by == 1, function ($query) {
+                return $query->orderBy('created_at', 'desc');
+            })
+            ->when($request->sort_by == 2, function ($query) {
+                return $query->orderBy('created_at', 'asc');
+            })
+            ->when($request->sort_by == 3, function ($query) {
+                return $query->orderBy('price', 'asc');
+            })
+            ->when($request->sort_by == 4, function ($query) {
+                return $query->orderBy('price', 'desc');
+            });
+        }
+
+        $products = $products->paginate(20);
+
+        return view('pages.products', compact('products', 'category', 'request'));
+    }
+
+    public function bot(){
+        $category = Category::all();
+        foreach ($category as $row) {
+            $slug = Str::slug($row->name);
+
+            $count = Category::where('slug', $slug)->where('id', '!=', $row->id)->count();
+            if ($count > 0) {
+                $slug = $slug . '-' . ($count + 1);
+            }
+            $row->slug = $slug;
+            $row->save();
+        }
     }
 }

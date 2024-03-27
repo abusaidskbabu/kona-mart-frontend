@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/bot', 'HomeController@bot')->name('bot');
 Route::get('/', 'HomeController@home')->name('home');
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/products', 'HomeController@products')->name('products');
 Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::get('/show-add-to-cart-modal', 'HomeController@showCartModal')->name('home.show.add.to.cart.modal');
 Route::post('/product/variant_price', 'HomeController@variantPrice')->name('home.show.product.variant.price');

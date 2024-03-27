@@ -56,55 +56,43 @@
                         @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
                             @if(count($parrent_category->subcategory) > 0)
                                 <li class="nav-item">
-                                    <a class="nav-link nav-link-parent"> {{ $parrent_category->name }} </a>
+                                    <a href="{{ route('products') }}?category={{ $parrent_category->slug }}" class="nav-link nav-link-parent"> {{ $parrent_category->name }} </a>
                                     <ul class="menu-siderbar-child nav flex-column">
                                         @foreach ($parrent_category->subcategory as $subcategory)
                                             <li> 
                                                 @if(count($subcategory->subcategory) > 0)
-                                                    <a href="index.html"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
+                                                    <a href="{{ route('products') }}?category={{ $subcategory->slug }}"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
                                                     <ul class="menu-siderbar-child nav flex-column">
                                                         @foreach ($subcategory->subcategory as $childcategory)
                                                             <li>
-                                                                <a href="" class="text-uppercase">{{ $childcategory->name }}</a>
+                                                                <a href="{{ route('products') }}?category={{ $childcategory->slug }}" class="text-uppercase">{{ $childcategory->name }}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
                                                 @else
-                                                    <a href="" class="text-uppercase"> {{ $subcategory->name }} </a>
+                                                    <a href="{{ route('products') }}?category={{ $subcategory->slug }}" class="text-uppercase"> {{ $subcategory->name }} </a>
                                                 @endif
                                             </li>
                                         @endforeach 
                                     </ul>
                                 </li>
                             @else
-                                <a href="" class="text-uppercase"> {{ $parrent_category->name }} </a>
+                                <a href="{{ route('products') }}?category={{ $parrent_category->slug }}" class="text-uppercase"> {{ $parrent_category->name }} </a>
                             @endif
                         @empty
                         @endforelse
                         
-                        <li class="nav-item">
-                            <a href="users/login.html" class="nav-link">
-                                <i class="la la-dashboard"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
+                        @if(Auth::user())
+                            <li class="nav-item">
+                                <a href="{{ route('dashboard')}}" class="nav-link">
+                                    <i class="la la-dashboard"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                        @endif 
 
                         <li class="nav-item">
-                            <a href="users/login.html" class="nav-link">
-                                <i class="la la-file-text"></i>
-                                <span>My Orders</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="compare.html" class="nav-link">
-                                <i class="la la-refresh"></i>
-                                <span>Compare</span>
-                                <span class="badge" id="compare_items_sidenav">0</span>
-                            </a>
-                        </li>
-                                        
-                        <li class="nav-item">
-                            <a href="cart.html" class="nav-link">
+                            <a href="{{ route('cart') }}" class="nav-link">
                                 <i class="la la-shopping-cart"></i>
                                 <span>Cart</span>
                                 <span class="badge leftbar_cart_items_sidenav" id="cart_items_sidenav">0</span>
@@ -114,21 +102,6 @@
                             <a href="users/login.html" class="nav-link">
                                 <i class="la la-heart-o"></i>
                                 <span>Wishlist</span>
-                            </a>
-                        </li>
-
-                        
-                        <li class="nav-item">
-                            <a href="users/login.html" class="nav-link">
-                                <i class="la la-dollar"></i>
-                                <span>My Wallet</span>
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a href="users/login.html" class="nav-link">
-                                <i class="la la-user"></i>
-                                <span>Manage Profile</span>
                             </a>
                         </li>
                     </ul>
@@ -273,27 +246,29 @@
                             @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
                                 <li>
                                     @if(count($parrent_category->subcategory) > 0)
-                                        <a href=""> <strong style="color:; font-weigh" class="text-uppercase"> {{ $parrent_category->name }} </strong> </a>
+                                        <a href="{{ route('products') }}?category={{ $parrent_category->slug }}"> 
+                                            <strong style="color:; font-weigh" class="text-uppercase"> {{ $parrent_category->slug }} </strong> 
+                                        </a>
                                         <ul>
                                             @foreach ($parrent_category->subcategory as $subcategory)
                                                 <li> 
                                                     @if(count($subcategory->subcategory) > 0)
-                                                        <a href=""> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
+                                                        <a href="{{ route('products') }}?category={{ $subcategory->slug }}"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
                                                         <ul>
                                                             @foreach ($subcategory->subcategory as $childcategory)
                                                                 <li>
-                                                                    <a href="" class="text-uppercase">{{ $childcategory->name }}</a>
+                                                                    <a href="{{ route('products') }}?category={{ $childcategory->slug }}" class="text-uppercase">{{ $childcategory->name }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>
                                                     @else
-                                                        <a href="" class="text-uppercase"> {{ $subcategory->name }} </a>
+                                                        <a href="{{ route('products') }}?category={{ $subcategory->slug }}" class="text-uppercase"> {{ $subcategory->name }} </a>
                                                     @endif
                                                 </li>
                                             @endforeach
                                         </ul>
                                     @else
-                                        <a href="" class="text-uppercase"><strong style="color:; font-weigh"> {{ $parrent_category->name }} </strong> </a>
+                                        <a href="{{ route('products') }}?category={{ $parrent_category->slug }}" class="text-uppercase"><strong style="color:; font-weigh"> {{ $parrent_category->name }} </strong> </a>
                                     @endif
                                 </li>
                             @empty

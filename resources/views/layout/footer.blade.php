@@ -81,11 +81,6 @@
                             </li>
                             <li>
                                 <a href="users/login.html">
-                                    Order History
-                                </a>
-                            </li>
-                            <li>
-                                <a href="users/login.html">
                                     My Wishlist
                                 </a>
                             </li>
@@ -102,8 +97,7 @@
 
                         <p class="mt-3"></p>
                         <div class="d-inline-block d-md-block">
-                            <form class="form-inline" method="POST" action="https://KonaMart.com.bd/subscribers">
-                                <input type="hidden" name="_token" value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd">
+                            <form class="form-inline" method="POST" action="">
                                 <div class="form-group mb-0">
                                     <input type="email" class="form-control" placeholder="Your Email Address"
                                         name="email1" required>
@@ -128,13 +122,7 @@
                     <div class="copyright text-center text-md-left">
                         <ul class="copy-links no-margin">
                             <li>
-                                © 2024 {{ $settings->site_title }}
-                            </li>
-                            <li>
-                                <a href="terms.html">Terms</a>
-                            </li>
-                            <li>
-                                <a href="privacypolicy.html">Privacy policy</a>
+                                © {{ date('Y')}} {{ $settings->site_title }}
                             </li>
                         </ul>
                     </div>
