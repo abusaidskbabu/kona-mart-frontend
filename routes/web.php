@@ -38,3 +38,9 @@ Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/authenticate', 'AuthController@authenticate')->name('authenticate');
 
 Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
+
+Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
+Route::get('/contact-us', 'HomeController@contactUs')->name('contactUs');
+Route::get('/terms-condition', 'HomeController@termsCond')->name('termsCond');
+Route::get('/return-policy', 'HomeController@returnPolicy')->name('returnPolicy');
+Route::get('/store-location', 'HomeController@storeLocation')->name('storeLocation');
