@@ -32,10 +32,10 @@ a.filter-sub-cat {
 }
 
 .home-pro-info .home-pro-addtocart.list-page button.btn.add-wishlist {
-    border: 1px solid #010101;
+    border: 1px solid #274C5C;
     padding: 0 10px;
     font-size: 18px;
-    background: #010101;
+    background: #274C5C;
     color: #fff
 }
 
@@ -153,7 +153,7 @@ p.hotline.top {
 }
 
 .nav-main.home-featured-cat-tabs a.nav-link.active {
-    background: #010101
+    background: #274C5C
 }
 
 .sm-fixed-top.logo-bar-area .navbar-brand img {
@@ -338,7 +338,7 @@ input#search {
 }
 
 .search-box button.d-none.d-lg-block {
-    background-color: #010101;
+    background-color: #274C5C;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px
 }
@@ -354,7 +354,7 @@ span.nav-box-number {
     border-radius: 14px !important;
     color: #fff;
     font-size: 12px;
-    background-color: #010101 !important
+    background-color: #274C5C !important
 }
 
 .category-menu-icon {
@@ -375,7 +375,7 @@ span.nav-box-number {
 }
 
 .nav-area {
-    background: #010101;
+    background: #274C5C;
 }
 
 div#category-menu-icon {
@@ -804,7 +804,7 @@ ul.main-navigation li a:hover {
 }
 
 .main-navigation li:hover a {
-    background: #010101
+    background: #274C5C
 }
 
 .main-navigation li:hover li a:hover {
@@ -979,7 +979,7 @@ span.price-dec-details {
 }
 
 .product-box-2 .add-to-cart:hover {
-    background-color: #010101;
+    background-color: #274C5C;
 }
 
 .store-search-container {

@@ -8,7 +8,7 @@
 </style>
 
 <div class="header bg-white">
-    <div class="top-navbar">
+    <div class="top-navbar d-none d-lg-block">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col d-flex align-items-center">
@@ -193,6 +193,14 @@
                             </div>
 
                             <div class="logo-bar-icons d-inline-block ml-auto">
+                                <div class="d-inline-block d-lg-none">
+                                    <div class="nav-search-box">
+                                        <a href="#" class="nav-box-link">
+                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
 
                                 <div class="d-inline-block">
                                     <div class="nav-cart-box toggle_userpanel_bar">
@@ -210,15 +218,6 @@
                                             <span class="nav-box-number">0</span>
                                         </a>
                                     </div>
-                                </div>
-
-                                <div class="d-inline-block d-lg-none">
-                                    <div class="nav-search-box">
-                                        <a href="#" class="nav-box-link">
-                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
-                                        </a>
-                                    </div>
-
                                 </div>
 
                                 <div class="d-inline-block">
@@ -255,7 +254,7 @@
 
                     <div class="col-lg-12 col-12 hide-mobile">
                         <!-- drop down Main menu-->
-                        <ul class="main-navigation" style="color:#fff; letter-spacing:.5px;">
+                        <ul class="main-navigation d-flex justify-content-center" style="color:#fff; letter-spacing:.5px;">
                             @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
                                 <li>
                                     @if(count($parrent_category->subcategory) > 0)

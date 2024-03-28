@@ -65,6 +65,99 @@
         
     </section>
 
+    <section class="gry-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 d-none d-xl-block">
+                    <div class="seller-top-products-box bg-white sidebar-box mb-3">
+                        <div class="box-title">
+                            Top Selling Products
+                        </div>
+                        <div class="box-content">
+                            @foreach ($best_sellings as $bproduct)
+                                @php $images = explode(",", $bproduct->product->image) @endphp
+                                <div class="mb-3 product-box-3">
+                                    <div class="clearfix">
+                                        <div class="product-image float-left">
+                                            <a href="{{ route('product.details', $bproduct->product->slug) }}">
+                                                <img class="img-fit lazyload" src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                    alt="{{ $bproduct->product->name }}">
+                                            </a>
+                                        </div>
+                                        <div class="product-details float-left">
+                                            <h4 class="title text-truncate">
+                                                <a href="{{ route('product.details', $bproduct->product->slug) }}" class="d-block">{{ $bproduct->product->name }}</a>
+                                            </h4>
+                                            {{-- <div class="star-rating star-rating-sm mt-1">
+                                                <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                    class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                    class = 'fa fa-star'></i>
+                                            </div> --}}
+                                            <div class="price-box">
+                                                <span class="product-price strong-600">৳{{ number_format($bproduct->price, 0, '.', ',') }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9">
+                    <div class="bg-white p-3">
+                        <div class="section-title-1">
+                            <h3 class="heading-5 strong-700 mb-0">
+                                <span class="mr-4">Related products</span>
+                            </h3>
+                        </div>
+                        <div class="caorusel-box arrow-round gutters-5">
+                            <div class="slick-carousel" data-slick-items="3" data-slick-xl-items="2"
+                                data-slick-lg-items="3" data-slick-md-items="2" data-slick-sm-items="1"
+                                data-slick-xs-items="1" data-slick-rows="2">
+                                @foreach($related_products as $rproduct)
+                                    @php $images = explode(",", $rproduct->image) @endphp
+                                    <div class="caorusel-card my-1">
+                                        <div class="row no-gutters product-box-2 align-items-center">
+                                            <div class="col-5">
+                                                <div class="position-relative overflow-hidden h-100">
+                                                    <a href="{{ route('product.details', $rproduct->slug) }}"
+                                                        class="d-block product-image h-100 text-center">
+                                                        <img class="img-fit lazyload"
+                                                            src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                            data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                            alt="{{ $rproduct->name }}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-7 border-left">
+                                                <div class="p-3">
+                                                    <h2 class="product-title mb-0 p-0 text-truncate">
+                                                        <a href="{{ route('product.details', $rproduct->slug) }}">{{ $rproduct->name }}</a>
+                                                    </h2>
+                                                    {{-- <div class="star-rating star-rating-sm mb-2">
+                                                        <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                            class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                            class = 'fa fa-star'></i>
+                                                    </div> --}}
+                                                    <div class="clearfix">
+                                                        <div class="price-box float-left">
+                                                            <span class="product-price strong-600">৳{{ number_format($rproduct->price, 0, '.', ',') }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal -->
     <div class="modal fade" id="GuestCheckout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

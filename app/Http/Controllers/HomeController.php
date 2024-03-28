@@ -150,11 +150,14 @@ class HomeController extends Controller
         $productIds = array_keys($cartlist);
         $products = Product::whereIn('id', $productIds)->get();
 
+        $category_ids = [];
+
         $cartlistItems = [];
         $subtotal = 0;
         $qty = 0;
         foreach ($products as $product) {
             $productId = $product->id;
+            array_push($category_ids, $product->category_id);
             if (isset($cartlist[$productId]) && is_array($cartlist[$productId])) {
                 $quantity = $cartlist[$productId]['quantity'];
                 $variant = $cartlist[$productId]['variant'] ?? '';
@@ -170,7 +173,15 @@ class HomeController extends Controller
         }
         $carts = $cartlistItems;
 
-        return view('pages.cart', compact('carts', 'subtotal'));
+        $related_products = Product::whereIn('category_id', $category_ids)->limit(20)->get();
+
+        $best_sellings = OrderDetails::select('product_id', \DB::raw('SUM(count) as total_qty'))
+                    ->groupBy('product_id')
+                    ->orderByDesc('total_qty')
+                    ->limit(6)
+                    ->get();
+
+        return view('pages.cart', compact('carts', 'subtotal', 'related_products', 'best_sellings'));
     }
 
     public function updateCartSummary(Request $request){
@@ -464,12 +475,13 @@ class HomeController extends Controller
         $product = Product::where('slug', $slug)->first();
         $related_products = Product::where('category_id', $product->category_id)->limit(20)->get();
 
-        $best_sellings = OrderDetails::select('product_id', \DB::raw('SUM(qty) as total_qty'))
+        $best_sellings = OrderDetails::select('product_id', \DB::raw('SUM(count) as total_qty'))
                     ->groupBy('product_id')
                     ->orderByDesc('total_qty')
+                    ->limit(6)
                     ->get();
 
-        return view('pages.product-details', compact('product', 'related_products'));
+        return view('pages.product-details', compact('product', 'related_products', 'best_sellings'));
     }
 
     public function bot(){
@@ -499,6 +511,6 @@ class HomeController extends Controller
         return view('pages.returnPolicy');
     }
     public function storeLocation(){
-        return view('pages.termsCondition');
+        return view('pages.storeLocation');
     }
 }

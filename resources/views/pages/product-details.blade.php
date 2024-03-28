@@ -304,156 +304,33 @@
                             Top Selling Products
                         </div>
                         <div class="box-content">
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="FatuaFull-Sleeve-Solid1861-78vzz.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/0d794UGgzXCAnXNc2wISC9jJp25ilT7F1dAj1uYy.jpeg"
-                                                alt="Fatua:Full Sleeve  Solid 186#1">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="FatuaFull-Sleeve-Solid1861-78vzz.html" class="d-block">Fatua:Full
-                                                Sleeve_ Solid_186#1</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
+                            @foreach ($best_sellings as $bproduct)
+                                @php $images = explode(",", $bproduct->product->image) @endphp
+                                <div class="mb-3 product-box-3">
+                                    <div class="clearfix">
+                                        <div class="product-image float-left">
+                                            <a href="{{ route('product.details', $bproduct->product->slug) }}">
+                                                <img class="img-fit lazyload" src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                    alt="{{ $bproduct->product->name }}">
+                                            </a>
                                         </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳1,690</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="ShirtFull-SleeveTrendy-Fit--Solid4033-qpidk.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/HesJu5XAsvMeC7t6JQHc6Fkggl2XtglLhHontP7N.jpeg"
-                                                alt="Shirt:Full Sleeve Trendy Fit   Solid 403#3">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="ShirtFull-SleeveTrendy-Fit--Solid4033-qpidk.html"
-                                                class="d-block">Shirt:Full Sleeve_Trendy Fit_ Solid_403#3</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳1,690</span>
+                                        <div class="product-details float-left">
+                                            <h4 class="title text-truncate">
+                                                <a href="{{ route('product.details', $bproduct->product->slug) }}" class="d-block">{{ $bproduct->product->name }}</a>
+                                            </h4>
+                                            {{-- <div class="star-rating star-rating-sm mt-1">
+                                                <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                    class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                    class = 'fa fa-star'></i>
+                                            </div> --}}
+                                            <div class="price-box">
+                                                <span class="product-price strong-600">৳{{ number_format($bproduct->price, 0, '.', ',') }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="PanjabiSemi-Fit-Jacquard3081-Sn2On.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/T7WODDByIWKSJ9iq4dYVF8QAKFSoAuOjmN17Fsjs.jpeg"
-                                                alt="Panjabi Semi Fit  Jacquard 308#1">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="PanjabiSemi-Fit-Jacquard3081-Sn2On.html" class="d-block">Panjabi_Semi
-                                                Fit_ Jacquard_308#1</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳2,790</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="PoloShort-SleeveSemi-FitSolid1222-Dp7lQ.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/ZSI7Bl3WquZPKKB5XjR0u3F9CSZDXzarMk522Wvn.jpeg"
-                                                alt="Polo:Short Sleeve Semi Fit Solid 122#2">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="PoloShort-SleeveSemi-FitSolid1222-Dp7lQ.html"
-                                                class="d-block">Polo:Short Sleeve_Semi Fit_Solid_122#2</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳1,390</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="ShirtFull-SleeveTrendy-Fit--Solid4032-N0F8M.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/u5TU1RbvoJkGNpif8qlV7k0aEkBVohwOeaMUB6rZ.jpeg"
-                                                alt="Shirt:Full Sleeve Trendy Fit   Solid 403#2">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="ShirtFull-SleeveTrendy-Fit--Solid4032-N0F8M.html"
-                                                class="d-block">Shirt:Full Sleeve_Trendy Fit_ Solid_403#2</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳1,690</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 product-box-3">
-                                <div class="clearfix">
-                                    <div class="product-image float-left">
-                                        <a href="ShirtFull-SleeveTrendy-Fit--Solid4031-MVUuP.html">
-                                            <img class="img-fit lazyload" src="../public/frontend/images/placeholder.jpg"
-                                                data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/4F3d3ITXB3bGShYKrzY98iIb2WyYcIMtcMDBbjxe.jpeg"
-                                                alt="Shirt:Full Sleeve Trendy Fit   Solid 403#1">
-                                        </a>
-                                    </div>
-                                    <div class="product-details float-left">
-                                        <h4 class="title text-truncate">
-                                            <a href="ShirtFull-SleeveTrendy-Fit--Solid4031-MVUuP.html"
-                                                class="d-block">Shirt:Full Sleeve_Trendy Fit_ Solid_403#1</a>
-                                        </h4>
-                                        <div class="star-rating star-rating-sm mt-1">
-                                            <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                class = 'fa fa-star'></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="product-price strong-600">৳1,690</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -561,7 +438,7 @@
                                                     </div> --}}
                                                     <div class="clearfix">
                                                         <div class="price-box float-left">
-                                                            <span class="product-price strong-600">৳{{ number_format($product->price, 0, '.', ',') }}</span>
+                                                            <span class="product-price strong-600">৳{{ number_format($rproduct->price, 0, '.', ',') }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
