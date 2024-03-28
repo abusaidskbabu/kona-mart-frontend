@@ -87,7 +87,7 @@
 
     <div class="body-wrap shop-default shop-cards shop-tech gry-bg">
         @include('layout.navigation')
-        
+
         @yield('content')
 
         @include('layout.footer')
@@ -135,7 +135,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div id="addToCart-modal-body">
-                        
+
                     </div>
                 </div>
             </div>
@@ -478,7 +478,7 @@
         updateNavCart();
 
         function getCartSummary(){
-            $.get("{{ route('update.cart.summary') }}", { 
+            $.get("{{ route('update.cart.summary') }}", {
             }, function(data){
                 $('#cart-summary').html(data);
             });
