@@ -462,7 +462,14 @@ class HomeController extends Controller
 
     public function productDetails($slug){
         $product = Product::where('slug', $slug)->first();
-        return view('pages.product-details', compact('product'));
+        $related_products = Product::where('category_id', $product->category_id)->limit(20)->get();
+
+        $best_sellings = OrderDetails::select('product_id', \DB::raw('SUM(qty) as total_qty'))
+                    ->groupBy('product_id')
+                    ->orderByDesc('total_qty')
+                    ->get();
+
+        return view('pages.product-details', compact('product', 'related_products'));
     }
 
     public function bot(){

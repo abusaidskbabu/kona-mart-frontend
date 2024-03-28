@@ -22,33 +22,27 @@
                 <div class="row no-gutters cols-xs-space cols-sm-space cols-md-space">
                     <div class="col-lg-6">
                         <div class="product-gal sticky-top d-flex flex-row-reverse">
+                            <?php $images = explode(",", $product->image)?>
                             <div class="product-gal-img">
-                                <img src="../public/frontend/images/placeholder.jpg" class="xzoom img-fluid lazyload"
-                                    src="../public/frontend/images/placeholder.jpg"
-                                    data-src="https://dorjibari.com.bd/public/uploads/products/photos/GP2yxHglZ70uZnXUddqLs664WiYIddgyJfuaYIwa.jpeg"
-                                    xoriginal="https://dorjibari.com.bd/public/uploads/products/photos/GP2yxHglZ70uZnXUddqLs664WiYIddgyJfuaYIwa.jpeg" />
+                                <img src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}" class="xzoom img-fluid lazyload"
+                                    src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                    xoriginal="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                    data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}" />
                             </div>
                             <div class="product-gal-thumb">
                                 <div class="xzoom-thumbs">
-                                    <a
-                                        href="../public/uploads/products/photos/GP2yxHglZ70uZnXUddqLs664WiYIddgyJfuaYIwa.jpg">
-                                        <img src="../public/frontend/images/placeholder.jpg" class="xzoom-gallery lazyload"
-                                            src="../public/frontend/images/placeholder.jpg" width="80"
-                                            data-src="https://dorjibari.com.bd/public/uploads/products/photos/GP2yxHglZ70uZnXUddqLs664WiYIddgyJfuaYIwa.jpeg"
-                                            xpreview="https://dorjibari.com.bd/public/uploads/products/photos/GP2yxHglZ70uZnXUddqLs664WiYIddgyJfuaYIwa.jpeg">
-                                    </a>
-                                    <a
-                                        href="../public/uploads/products/photos/0pd4QybSqUlaDeNM7zLu6LWnpsMKxcRO9osTxMAL.jpg">
-                                        <img src="../public/frontend/images/placeholder.jpg" class="xzoom-gallery lazyload"
-                                            src="../public/frontend/images/placeholder.jpg" width="80"
-                                            data-src="https://dorjibari.com.bd/public/uploads/products/photos/0pd4QybSqUlaDeNM7zLu6LWnpsMKxcRO9osTxMAL.jpeg">
-                                    </a>
-                                    <a
-                                        href="../public/uploads/products/photos/N1f7Zj2losjzPO7pM1nRMfu8HbK55AtIKYurxEmR.jpg">
-                                        <img src="../public/frontend/images/placeholder.jpg" class="xzoom-gallery lazyload"
-                                            src="../public/frontend/images/placeholder.jpg" width="80"
-                                            data-src="https://dorjibari.com.bd/public/uploads/products/photos/N1f7Zj2losjzPO7pM1nRMfu8HbK55AtIKYurxEmR.jpeg">
-                                    </a>
+                                    @foreach ($images as $img)
+                                        <a href="{{ ($img) ? env('APPI_URL').'/images/product/'.$img : asset('assets/frontend/images/placeholder-product.jpg') }}">
+                                            <img src="{{ ($img) ? env('APPI_URL').'/images/product/'.$img : asset('assets/frontend/images/placeholder-product.jpg') }}" class="xzoom-gallery lazyload"
+                                                src="{{ ($img) ? env('APPI_URL').'/images/product/'.$img : asset('assets/frontend/images/placeholder-product.jpg') }}" width="80"
+                                                data-src="{{ ($img) ? env('APPI_URL').'/images/product/'.$img : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                xpreview="{{ ($img) ? env('APPI_URL').'/images/product/'.$img : asset('assets/frontend/images/placeholder-product.jpg') }}">
+                                        </a>
+                                    @endforeach 
                                 </div>
                             </div>
                         </div>
@@ -59,13 +53,13 @@
                         <div class="product-description-wrapper">
                             <!-- Product title -->
                             <h1 class="product-title mb-2">
-                                Fatua:Full Sleeve_Check_192#3
+                                {{ $product->name }}
                             </h1>
 
                             <div class="row align-items-center my-1">
                                 <div class="col-6">
                                     <!-- Rating stars -->
-                                    <div class="rating">
+                                    {{-- <div class="rating">
                                         <span class="star-rating">
                                             <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
                                                 class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
@@ -74,7 +68,7 @@
                                         <span>0</span>
                                         <span class="rating-count ml-1">(0 Reviews)</span>
 
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-6 text-right">
                                     <ul class="inline-links inline-links--style-1">
@@ -89,17 +83,13 @@
                             <hr>
                             <div class="sku">
                                 <div class="sku-text"><span class="title">SKU : </span> <span class="code">
-                                        3480138403026_192#3 </span></div>
+                                        {{ $product->code }}</span></div>
                             </div>
                             <hr>
 
                             <div class="row align-items-center">
 
-
                             </div>
-
-
-
 
                             <div class="row no-gutters mt-3">
                                 <div class="col-2">
@@ -108,7 +98,7 @@
                                 <div class="col-10">
                                     <div class="product-price">
                                         <strong>
-                                            ৳1,590
+                                            ৳{{ number_format($product->price, 0, '.', ',') }}
                                         </strong>
                                     </div>
                                 </div>
@@ -118,42 +108,30 @@
                             <hr>
 
                             <form id="option-choice-form">
-                                <input type="hidden" name="_token" value="iNtkzvTG1ErtZ9B0NqVKTSlWt28dZrJlh627ewZd">
-                                <input type="hidden" name="id" value="5915">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $product->id }}">
 
 
-                                <div class="row no-gutters">
-                                    <div class="col-2">
-                                        <div class="product-description-label mt-2 ">Size:</div>
+                                @if(count($product->variant) > 0)
+                                    <div class="row no-gutters">
+                                        <div class="col-2">
+                                            <div class="product-description-label mt-2 ">Size
+                                                :
+                                            </div>
+                                        </div>
+                                        <div class="col-10">
+                                            <ul class="list-inline checkbox-alphanumeric checkbox-alphanumeric--style-1 mb-2">
+                                                @foreach ($product->variant as $variant)
+                                                    <li>
+                                                        <input type="radio" onchange="getVariantPrice();" class="variant_field" id="{{$variant->id}}" name="attribute_id_1" value="{{$variant->id}}"
+                                                            checked="">
+                                                        <label for="{{$variant->id}}">{{$variant->variant->name}}</label>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="col-10">
-                                        <ul class="list-inline checkbox-alphanumeric checkbox-alphanumeric--style-1 mb-2">
-                                            <li>
-
-                                                <input type="radio" id="1-M" name="attribute_id_1" value="M"
-                                                    checked>
-                                                <label for="1-M">M</label>
-                                            </li>
-                                            <li>
-
-                                                <input type="radio" id="1-L" name="attribute_id_1" value="L">
-                                                <label for="1-L">L</label>
-                                            </li>
-                                            <li>
-
-                                                <input type="radio" id="1-XL" name="attribute_id_1" value="XL">
-                                                <label for="1-XL">XL</label>
-                                            </li>
-                                            <li>
-
-                                                <input type="radio" id="1-XXL" name="attribute_id_1" value="XXL">
-                                                <label for="1-XXL">XXL</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
+                                @endif 
 
                                 <!-- Quantity + Add to cart -->
                                 <div class="row no-gutters">
@@ -164,25 +142,21 @@
                                         <div class="product-quantity d-flex align-items-center">
                                             <div class="input-group input-group--style-2 pr-3" style="width: 160px;">
                                                 <span class="input-group-btn">
-                                                    <button class="btn btn-number" type="button" data-type="minus"
-                                                        data-field="quantity" disabled="disabled">
+                                                    <button class="btn btn-number" onclick="numberbtnClick(this);" type="button" data-type="minus"
+                                                        data-field="quantity" >
                                                         <i class="la la-minus"></i>
                                                     </button>
                                                 </span>
                                                 <input type="text" name="quantity"
-                                                    class="form-control h-auto input-number text-center" placeholder="1"
-                                                    value="1" min="1" max="10">
+                                                    class="form-control input-number h-auto text-center" placeholder="1" value="1"
+                                                    min="1" max="10">
                                                 <span class="input-group-btn">
-                                                    <button class="btn btn-number" type="button" data-type="plus"
+                                                    <button class="btn btn-number" onclick="numberbtnClick(this);" type="button" data-type="plus"
                                                         data-field="quantity">
                                                         <i class="la la-plus"></i>
                                                     </button>
                                                 </span>
                                             </div>
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +170,6 @@
                                     <div class="col-10">
                                         <div class="product-price">
                                             <strong id="chosen_price">
-
                                             </strong>
                                         </div>
                                     </div>
@@ -239,20 +212,16 @@
                                         Add to wishlist
                                     </button>
                                     <!-- Add to compare button -->
-                                    <button type="button" class="btn btn-link btn-icon-left strong-700"
+                                    {{-- <button type="button" class="btn btn-link btn-icon-left strong-700"
                                         onclick="addToCompare(5915)">
                                         Add to compare
-                                    </button>
+                                    </button> --}}
                                 </div>
                             </div>
 
-                            <hr class="mt-2">
+                            {{-- <hr class="mt-2"> --}}
 
-
-
-
-
-                            <div class="row no-gutters mt-4">
+                            {{-- <div class="row no-gutters mt-4">
                                 <div class="col-12">
                                     <h4 class="summary-details">Product Summary:</h4>
                                     <img src="../public/uploads/media/1710157434.jpg" alt="Size guide"
@@ -300,7 +269,7 @@
                                         <!-- AddToAny END -->
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -312,7 +281,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 d-none d-xl-block">
-                    <div class="seller-info-box mb-3">
+                    {{-- <div class="seller-info-box mb-3">
                         <div class="sold-by position-relative">
                             <div class="title">Sold By</div>
                             Dorjibari
@@ -329,10 +298,10 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="seller-top-products-box bg-white sidebar-box mb-3">
                         <div class="box-title">
-                            Top Selling Products From This Seller
+                            Top Selling Products
                         </div>
                         <div class="box-content">
                             <div class="mb-3 product-box-3">
@@ -496,10 +465,10 @@
                                     <a href="#tab_default_1" data-toggle="tab"
                                         class="nav-link text-uppercase strong-600 active show">Description</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="#tab_default_5" data-toggle="tab"
                                         class="nav-link text-uppercase strong-600">Reviews</a>
-                                </li>
+                                </li> --}}
                             </ul>
 
                             <div class="tab-content pt-0">
@@ -508,10 +477,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="mw-100 overflow--hidden aiz-product-description">
-                                                    <p>Fabric Pattern: 100% COTTON<br></p>
-                                                    <p>Color Name:&nbsp;Multi</p>
-                                                    <p>[NB: Actual colour of the product may vary slightly due to
-                                                        photographic lighting sources or your device.]</p>
+                                                    {!! $product->product_details !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -568,105 +534,41 @@
                             <div class="slick-carousel" data-slick-items="3" data-slick-xl-items="2"
                                 data-slick-lg-items="3" data-slick-md-items="2" data-slick-sm-items="1"
                                 data-slick-xs-items="1" data-slick-rows="2">
-                                <div class="caorusel-card my-1">
-                                    <div class="row no-gutters product-box-2 align-items-center">
-                                        <div class="col-5">
-                                            <div class="position-relative overflow-hidden h-100">
-                                                <a href="FatuaFull-Sleeve-Solid1861-78vzz.html"
-                                                    class="d-block product-image h-100 text-center">
-                                                    <img class="img-fit lazyload"
-                                                        src="../public/frontend/images/placeholder.jpg"
-                                                        data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/0d794UGgzXCAnXNc2wISC9jJp25ilT7F1dAj1uYy.jpeg"
-                                                        alt="Fatua:Full Sleeve_ Solid_186#1">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 border-left">
-                                            <div class="p-3">
-                                                <h2 class="product-title mb-0 p-0 text-truncate">
-                                                    <a href="FatuaFull-Sleeve-Solid1861-78vzz.html">Fatua:Full Sleeve_
-                                                        Solid_186#1</a>
-                                                </h2>
-                                                <div class="star-rating star-rating-sm mb-2">
-                                                    <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i>
+                                @foreach($related_products as $rproduct)
+                                    @php $images = explode(",", $rproduct->image) @endphp
+                                    <div class="caorusel-card my-1">
+                                        <div class="row no-gutters product-box-2 align-items-center">
+                                            <div class="col-5">
+                                                <div class="position-relative overflow-hidden h-100">
+                                                    <a href="{{ route('product.details', $rproduct->slug) }}"
+                                                        class="d-block product-image h-100 text-center">
+                                                        <img class="img-fit lazyload"
+                                                            src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                            data-src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
+                                                            alt="{{ $rproduct->name }}">
+                                                    </a>
                                                 </div>
-                                                <div class="clearfix">
-                                                    <div class="price-box float-left">
-                                                        <span class="product-price strong-600">৳1,690</span>
+                                            </div>
+                                            <div class="col-7 border-left">
+                                                <div class="p-3">
+                                                    <h2 class="product-title mb-0 p-0 text-truncate">
+                                                        <a href="{{ route('product.details', $rproduct->slug) }}">{{ $rproduct->name }}</a>
+                                                    </h2>
+                                                    {{-- <div class="star-rating star-rating-sm mb-2">
+                                                        <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                            class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
+                                                            class = 'fa fa-star'></i>
+                                                    </div> --}}
+                                                    <div class="clearfix">
+                                                        <div class="price-box float-left">
+                                                            <span class="product-price strong-600">৳{{ number_format($product->price, 0, '.', ',') }}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="caorusel-card my-1">
-                                    <div class="row no-gutters product-box-2 align-items-center">
-                                        <div class="col-5">
-                                            <div class="position-relative overflow-hidden h-100">
-                                                <a href="FatuaFull-Sleeve-Dobby1942-C7YEm.html"
-                                                    class="d-block product-image h-100 text-center">
-                                                    <img class="img-fit lazyload"
-                                                        src="../public/frontend/images/placeholder.jpg"
-                                                        data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/NPd7rCaC9TDFj39gkC9SmWsMjq11IdSwOe95DAC2.jpeg"
-                                                        alt="Fatua:Full Sleeve_ Dobby_194#2">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 border-left">
-                                            <div class="p-3">
-                                                <h2 class="product-title mb-0 p-0 text-truncate">
-                                                    <a href="FatuaFull-Sleeve-Dobby1942-C7YEm.html">Fatua:Full Sleeve_
-                                                        Dobby_194#2</a>
-                                                </h2>
-                                                <div class="star-rating star-rating-sm mb-2">
-                                                    <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i>
-                                                </div>
-                                                <div class="clearfix">
-                                                    <div class="price-box float-left">
-                                                        <span class="product-price strong-600">৳1,590</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="caorusel-card my-1">
-                                    <div class="row no-gutters product-box-2 align-items-center">
-                                        <div class="col-5">
-                                            <div class="position-relative overflow-hidden h-100">
-                                                <a href="FatuaFull-Sleeve-Print1882-FHNi5.html"
-                                                    class="d-block product-image h-100 text-center">
-                                                    <img class="img-fit lazyload"
-                                                        src="../public/frontend/images/placeholder.jpg"
-                                                        data-src="https://dorjibari.com.bd/public/uploads/products/thumbnail/Cbl1maFwRyWkrpKzFN6KJTGcseI7sGEjAfBzCh2U.jpeg"
-                                                        alt="Fatua:Full Sleeve_ Print_188#2">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 border-left">
-                                            <div class="p-3">
-                                                <h2 class="product-title mb-0 p-0 text-truncate">
-                                                    <a href="FatuaFull-Sleeve-Print1882-FHNi5.html">Fatua:Full Sleeve_
-                                                        Print_188#2</a>
-                                                </h2>
-                                                <div class="star-rating star-rating-sm mb-2">
-                                                    <i class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i><i class = 'fa fa-star'></i><i
-                                                        class = 'fa fa-star'></i>
-                                                </div>
-                                                <div class="clearfix">
-                                                    <div class="price-box float-left">
-                                                        <span class="product-price strong-600">৳1,590</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
