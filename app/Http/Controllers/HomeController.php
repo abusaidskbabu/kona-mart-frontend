@@ -485,8 +485,20 @@ class HomeController extends Controller
     }
 
     public function bot(){
-        $category = Product::all();
+        $category = Category::all();
         foreach ($category as $row) {
+            $slug = Str::slug($row->name);
+
+            $count = Category::where('slug', $slug)->where('id', '!=', $row->id)->count();
+            if ($count > 0) {
+                $slug = $slug . '-' . ($count + 1);
+            }
+            $row->slug = $slug;
+            $row->save();
+        }
+
+        $products = Product::all();
+        foreach ($products as $row) {
             $slug = Str::slug($row->name);
 
             $count = Product::where('slug', $slug)->where('id', '!=', $row->id)->count();
