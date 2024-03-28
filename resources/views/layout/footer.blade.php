@@ -7,6 +7,14 @@
 
                 <div class="col-lg-3 col-md-3 col-6 footer-box">
                     <div class="col text-center text-md-left">
+                        <div id="facebook">
+                            <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/konamartbd/" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=0&amp;height=200&amp;hide_cover=false&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width=300" role="tablist"><span style="vertical-align: bottom; width: 300px; height: 200px;"><iframe name="fa6bc9086bc8c191a" width="300px" height="200px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v5.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;container_width=0&amp;height=200&amp;hide_cover=false&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width=300" style="border: none; visibility: visible; width: 300px; height: 200px;" class=""></iframe></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-6 footer-box">
+                    <div class="col text-center text-md-left">
                         <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
                             Contact Info
                         </h4>
