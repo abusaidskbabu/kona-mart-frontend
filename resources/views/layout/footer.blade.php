@@ -39,76 +39,31 @@
                         </h4>
                         <ul class="footer-links">
                             <li>
-                                <a href="AboutUs.html" title="">
+                                <a href="{{ route('aboutUs') }}" title="">
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="">
+                                <a href="{{ route('contactUs') }}" title="">
                                     Contact Us
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="">
+                                <a href="{{ route('termsCond') }}" title="">
                                     Terms &amp; Condition
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="">
+                                <a href="{{ route('returnPolicy') }}" title="">
                                     Return Policy
                                 </a>
                             </li>
                             <li>
-                                <a href="outlets.html" title="">
+                                <a href="{{ route('storeLocation') }}" title="">
                                     Store Location
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-lg-3 col-6 footer-box">
-                    <div class="col text-center text-md-left">
-                        <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
-                            My Account
-                        </h4>
-
-                        <ul class="footer-links">
-                            <li>
-                                <a href="users/login.html">
-                                    Login
-                                </a>
-                            </li>
-                            <li>
-                                <a href="users/login.html">
-                                    My Wishlist
-                                </a>
-                            </li>
-                            <li>
-                                <a href="track_your_order.html">
-                                    Track Order
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-xl-3 col-6 footer-box text-center text-md-left">
-                    <div class="col">
-
-                        <p class="mt-3"></p>
-                        <div class="d-inline-block d-md-block">
-                            <form class="form-inline" method="POST" action="">
-                                <div class="form-group mb-0">
-                                    <input type="email" class="form-control" placeholder="Your Email Address"
-                                        name="email1" required>
-                                </div>
-                                <button type="submit" class="btn btn-base-1 btn-icon-left">
-                                    Subscribe
-                                </button>
-                            </form>
-                            <div class="payment-icom"><img src="{{ asset('assets/frontend/images/payment.png') }}" width="100%">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -118,7 +73,7 @@
     <div class="footer-bottom py-3 sct-color-3">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="copyright text-center text-md-left">
                         <ul class="copy-links no-margin">
                             <li>
@@ -127,35 +82,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <ul class="text-center my-3 my-md-0 social-nav model-2">
-                        <li>
-                            <a href="{{ $settings->facebook }}" class="facebook" target="_blank"
-                                data-toggle="tooltip" data-original-title="Facebook">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $settings->instagram }}" class="instagram" target="_blank"
-                                data-toggle="tooltip" data-original-title="Instagram">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $settings->twitter }}" class="twitter" target="_blank" data-toggle="tooltip"
-                                data-original-title="Twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ $settings->youtube }}" class="youtube" target="_blank" data-toggle="tooltip"
-                                data-original-title="Youtube">
-                                <i class="fa fa-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="col-md-7">
+                    <div class="payment-icom"><img src="{{ asset('assets/frontend/images/payment-options.png') }}" width="100%">
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="text-center text-md-right">
                         <p class="powered-by">Powered by <a href="" target="_blank">{{ $settings->developed_by }}</a> </p>
                     </div>

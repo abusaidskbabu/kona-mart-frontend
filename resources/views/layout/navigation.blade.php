@@ -1,19 +1,32 @@
 @include('layout.side-bar')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .inline-links li i{
+        font-size: 15px;
+    }
+</style>
+
 <div class="header bg-white">
     <div class="top-navbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col">
+                <div class="col-lg-6 col d-flex align-items-center">
                     <ul class="inline-links d-lg-inline-block d-flex justify-content-between">
-                        <li>
+                        <li id="fb_link"><a href="http://www.facebook.com/siwaklifestyle"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li id="tw_link"><a href=""><i class="fab fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li id="insta_link"><a href=""><i class="fab fa-instagram-square" aria-hidden="true"></i></a></li>
+                        <li id="yt_link"><a href=""><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                        <li class="mobile_no"><i class="fas fa-phone" aria-hidden="true"></i> {{ $settings->phone }} </li>
+				        <li class="email_addr"><i class="fas fa-envelope-open" aria-hidden="true"></i> {{ $settings->email }} </li>
+                        {{-- <li>
                             <p class="hotline top">Call: {{ $settings->phone }}</p>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
-                <div class="col-6 text-center">
-                </div>
-                <div class="col-3 text-right d-none d-lg-block">
+                {{-- <div class="col-6 text-center">
+                </div> --}}
+                <div class="col-6 text-right d-none d-lg-block">
                     <ul class="inline-links">
                         <li>
                             <a href="track_your_order.html" class="top-bar-item">Track Order</a>
@@ -59,7 +72,7 @@
                                     <a href="{{ route('products') }}?category={{ $parrent_category->slug }}" class="nav-link nav-link-parent"> {{ $parrent_category->name }} </a>
                                     <ul class="menu-siderbar-child nav flex-column">
                                         @foreach ($parrent_category->subcategory as $subcategory)
-                                            <li> 
+                                            <li>
                                                 @if(count($subcategory->subcategory) > 0)
                                                     <a href="{{ route('products') }}?category={{ $subcategory->slug }}"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
                                                     <ul class="menu-siderbar-child nav flex-column">
@@ -73,7 +86,7 @@
                                                     <a href="{{ route('products') }}?category={{ $subcategory->slug }}" class="text-uppercase"> {{ $subcategory->name }} </a>
                                                 @endif
                                             </li>
-                                        @endforeach 
+                                        @endforeach
                                     </ul>
                                 </li>
                             @else
@@ -81,7 +94,7 @@
                             @endif
                         @empty
                         @endforelse
-                        
+
                         @if(Auth::user())
                             <li class="nav-item">
                                 <a href="{{ route('dashboard')}}" class="nav-link">
@@ -89,7 +102,7 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
-                        @endif 
+                        @endif
 
                         <li class="nav-item">
                             <a href="{{ route('cart') }}" class="nav-link">
@@ -128,7 +141,7 @@
                                     </div>
                                 </a>
                             </div>
-                               
+
                             <!-- Brand/Logo -->
                             <a class="navbar-brand w-100" href="/">
                                 <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" style="height: 60px;" height="60px" alt="{{ $settings->site_title }}">
@@ -155,7 +168,7 @@
                                         <div class="w-100">
                                             <input type="text" aria-label="Search" id="search" name="q" class="w-100" placeholder="I am shopping for..." autocomplete="off">
                                         </div>
-                                        
+
                                         <button class="d-none d-lg-block" type="submit">
                                             <i class="la la-search la-flip-horizontal"></i>
                                         </button>
@@ -180,36 +193,15 @@
                             </div>
 
                             <div class="logo-bar-icons d-inline-block ml-auto">
-                                <div class="d-inline-block d-lg-none">
-                                    <div class="nav-search-box">
-                                        <a href="#" class="nav-box-link">
-                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
-                                        </a>
-                                    </div>
-                                    
-                                </div>
-                                
+
                                 <div class="d-inline-block">
-                                    <div class="nav-cart-box  toggle_notification_bar" id="notification_items">
+                                    <div class="nav-cart-box toggle_userpanel_bar">
                                         <a href="#!" class="nav-box-link">
-                                            <i class="la la-bell d-inline-block nav-box-icon"></i>
-                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
-                                            <span class="nav-box-number new-notice-count">0</span>
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="d-none d-lg-inline-block">
-                                    <div class="nav-wishlist-box" id="wishlist">
-                                        <a href="users/login.html" class="nav-box-link">
-                                            <i class="la la-heart-o d-inline-block nav-box-icon"></i>
-                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
-                                            <span class="nav-box-number">0</span>
+                                            <i class="la la-user d-inline-block nav-box-icon"></i>
                                         </a>
                                     </div>
                                 </div>
-            
+
                                 <div class="d-inline-block">
                                     <div class="nav-cart-box  toggle_cart_bar" id="cart_items">
                                         <a href="#!" class="nav-box-link">
@@ -219,12 +211,33 @@
                                         </a>
                                     </div>
                                 </div>
-                                
-                                
+
+                                <div class="d-inline-block d-lg-none">
+                                    <div class="nav-search-box">
+                                        <a href="#" class="nav-box-link">
+                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
                                 <div class="d-inline-block">
-                                    <div class="nav-cart-box toggle_userpanel_bar">
+                                    <div class="nav-cart-box  toggle_notification_bar" id="notification_items">
                                         <a href="#!" class="nav-box-link">
-                                            <i class="la la-user d-inline-block nav-box-icon"></i>
+                                            <i class="la la-bell d-inline-block nav-box-icon"></i>
+                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                            <span class="nav-box-number new-notice-count">0</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="d-none d-lg-inline-block">
+                                    <div class="nav-wishlist-box" id="wishlist">
+                                        <a href="users/login.html" class="nav-box-link">
+                                            <i class="la la-heart-o d-inline-block nav-box-icon"></i>
+                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                            <span class="nav-box-number">0</span>
                                         </a>
                                     </div>
                                 </div>
@@ -234,24 +247,24 @@
                 </div>
             </div>
         </div>
-        
+
         <!--menu-->
         <div class="nav-area">
             <div class="container-fluid">
                 <div class="row">
-                                    
+
                     <div class="col-lg-12 col-12 hide-mobile">
                         <!-- drop down Main menu-->
                         <ul class="main-navigation" style="color:#fff; letter-spacing:.5px;">
                             @forelse (\App\Category::where('is_active', 1)->whereNull('parent_id')->get() as $parrent_category)
                                 <li>
                                     @if(count($parrent_category->subcategory) > 0)
-                                        <a href="{{ route('products') }}?category={{ $parrent_category->slug }}"> 
-                                            <strong style="color:; font-weigh" class="text-uppercase"> {{ $parrent_category->slug }} </strong> 
+                                        <a href="{{ route('products') }}?category={{ $parrent_category->slug }}">
+                                            <strong style="color:; font-weigh" class="text-uppercase"> {{ $parrent_category->slug }} </strong>
                                         </a>
                                         <ul>
                                             @foreach ($parrent_category->subcategory as $subcategory)
-                                                <li> 
+                                                <li>
                                                     @if(count($subcategory->subcategory) > 0)
                                                         <a href="{{ route('products') }}?category={{ $subcategory->slug }}"> <strong style="color:; font-weigh" class="text-uppercase"> {{ $subcategory->name }} </strong> </a>
                                                         <ul>
@@ -286,13 +299,13 @@
                         <!-- end drop down menu-->
                     </div>
                 </div>
-    
+
             </div>
         </div>
-    </div>   
+    </div>
 </div>
-                
 
 
-                                
-         
+
+
+

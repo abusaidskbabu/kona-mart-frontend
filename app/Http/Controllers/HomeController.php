@@ -53,7 +53,7 @@ class HomeController extends Controller
             'quantity' => $variant->qty ?? 0,
             'digital' => 0
         ];
-    
+
         // Return the JSON response
         return response()->json($variantData);
     }
@@ -92,7 +92,7 @@ class HomeController extends Controller
 
         // Calculate the updated cart count
         $cartCount = count($cartlist);
-    
+
         $message = 'Item added to cart!';
         return view('pages.cart.added-to-cart', compact('product', 'message', 'price'));
     }
@@ -275,7 +275,7 @@ class HomeController extends Controller
             'shipping_thana' => 'required',
             'address' => 'required',
         ]);
-        
+
         if ($request->session()->has('shipping_info')) {
             $shippingInfo = $request->session()->get('shipping_info');
         } else {
@@ -425,7 +425,7 @@ class HomeController extends Controller
     }
 
     public function products(Request $request){
-        
+
         $category = Category::where('slug', $request->category)->first();
         $products = Product::where('is_active', 1);
         if($request->category){
@@ -477,5 +477,21 @@ class HomeController extends Controller
             $row->slug = $slug;
             $row->save();
         }
+    }
+
+    public function aboutUs(){
+        return view('pages.aboutUs');
+    }
+    public function contactUs(){
+        return view('pages.ContactUs');
+    }
+    public function termsCond(){
+        return view('pages.termsCondition');
+    }
+    public function returnPolicy(){
+        return view('pages.returnPolicy');
+    }
+    public function storeLocation(){
+        return view('pages.termsCondition');
     }
 }

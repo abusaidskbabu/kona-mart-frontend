@@ -30,7 +30,7 @@
     <!--home sectiction-->
 
     <!--end home sectiction-->
-   
+
 
 
     <!--End Flash Deal-->
@@ -171,7 +171,7 @@
                                                 @include('pages.product.product-card')
                                             </div>
                                         @endforeach
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@
     <!--end thumb img grid-->
     <!--flash deal-->
 
-    
+
     <!--product carousel-->
     @forelse ($sections as $section)
         <section class="section">
@@ -276,11 +276,11 @@
             </div>
         </section>
     @empty
-    
+
     @endforelse
 
     <!--products carousel end-->
-    
+
     <style>
         .loadmore {
             text-align: center;
@@ -393,4 +393,25 @@
     </section>
 
     -->
+
+    <section class="section">
+        <div class="container-fluid">
+            <div class="row color_bg">
+                <div class="col-12">
+                    <div>
+                        <div class="section-title-1 clearfix">
+                            <h3 class="heading-5 strong-700 mb-0 float-left">
+                                <span class="mr-4"> Customer Review </span>
+                            </h3>
+                        </div>
+
+                        <div class="row">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
