@@ -460,12 +460,17 @@ class HomeController extends Controller
         return view('pages.products', compact('products', 'category', 'request'));
     }
 
+    public function productDetails($slug){
+        $product = Product::where('slug', $slug)->first();
+        return view('pages.product-details', compact('product'));
+    }
+
     public function bot(){
-        $category = Category::all();
+        $category = Product::all();
         foreach ($category as $row) {
             $slug = Str::slug($row->name);
 
-            $count = Category::where('slug', $slug)->where('id', '!=', $row->id)->count();
+            $count = Product::where('slug', $slug)->where('id', '!=', $row->id)->count();
             if ($count > 0) {
                 $slug = $slug . '-' . ($count + 1);
             }

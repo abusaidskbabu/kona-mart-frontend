@@ -7,10 +7,9 @@
                 <div class="col">
                     <ul class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        @if ($category)
-                            <li><a href="">{{ $category->name }}</a></li>
-                        @endif
+                        <li><a href="">{{ $product->category->name }}</a></li>
                         <li><a href="{{ route('products') }}">Products</a></li>
+                        <li><a href="">{{ $product->name }}</a></li>
                     </ul>
                 </div>
             </div>

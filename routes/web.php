@@ -16,6 +16,7 @@ Route::get('/bot', 'HomeController@bot')->name('bot');
 Route::get('/', 'HomeController@home')->name('home');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/products', 'HomeController@products')->name('products');
+Route::get('/product/details/{slug}', 'HomeController@productDetails')->name('product.details');
 Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::get('/show-add-to-cart-modal', 'HomeController@showCartModal')->name('home.show.add.to.cart.modal');
 Route::post('/product/variant_price', 'HomeController@variantPrice')->name('home.show.product.variant.price');

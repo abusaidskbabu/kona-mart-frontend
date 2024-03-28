@@ -1,7 +1,7 @@
 <div class="product-card-2 card card-product shop-cards shop-tech product-box-2">
     <div class="card-body p-0">
         <div class="card-image">
-            <a href=""
+            <a href="{{ route('product.details', $product->slug) }}"
                 class="d-block">
                 <?php $images = explode(",", $product->image)?>
                 <img class="img-fit lazyload mx-auto" src="{{ ($images[0]) ? env('APPI_URL').'/images/product/'.$images[0] : asset('assets/frontend/images/placeholder-product.jpg') }}"
@@ -16,7 +16,7 @@
             </div>
 
             <h2 class="product-title p-0">
-                <a href=""
+                <a href="{{ route('product.details', $product->slug) }}"
                     class="text-truncates">{{ $product->name }}</a>
             </h2>
 
