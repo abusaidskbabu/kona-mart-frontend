@@ -106,54 +106,54 @@
 
 
 
-        <section class="section">
-        <div class="container-fluid">
-            <div class="row color_bg">
+            <section class="section">
+            <div class="container-fluid">
+                <div class="row color_bg">
 
 
-                <div class="section-title-1 clearfix " style="display: block; width: 100%; text-align: left ;border: none; margin-left:15px">
-                    <h3 class="heading-5 strong-700 mb-0 ">
+                    <div class="section-title-1 clearfix " style="display: block; width: 100%; text-align: left ;border: none; margin-left:15px">
+                        <h3 class="heading-5 strong-700 mb-0 ">
 
-                        <br>
-                        <span class="mr-4"> BD Festive Wear</span>
-                    </h3>
-                </div>
-
-                <div class="col-lg-3 col-6 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/men-festive-wear" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/techopz/images/festive-bg.png" data-src="https://swaponsworld.com/public/techopz/images/festive-bg.png" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
-                                </a>
+                            <br>
+                            <span class="mr-4"> BD Festive Wear</span>
+                        </h3>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/kids/kids-festive-wear" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/techopz/images/kids.jpg" data-src="https://swaponsworld.com/public/techopz/images/kids.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
-                                </a>
+
+                    <div class="col-lg-3 col-6 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/men-festive-wear" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/techopz/images/festive-bg.png" data-src="https://swaponsworld.com/public/techopz/images/festive-bg.png" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/bd-festive-wears/couple-festive-wear" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/techopz/images/matching.jpg" data-src="https://swaponsworld.com/public/techopz/images/matching.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-3 col-6 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/kids/kids-festive-wear" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/techopz/images/kids.jpg" data-src="https://swaponsworld.com/public/techopz/images/kids.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/women-festive-wear" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/techopz/images/Women-festive.jpg" data-src="https://swaponsworld.com/public/techopz/images/Women-festive.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-3 col-6 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/bd-festive-wears/couple-festive-wear" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/techopz/images/matching.jpg" data-src="https://swaponsworld.com/public/techopz/images/matching.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-lg-3 col-6 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/women-festive-wear" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/techopz/images/Women-festive.jpg" data-src="https://swaponsworld.com/public/techopz/images/Women-festive.jpg" alt="{{ env('APP_NAME') }} promo" class="img-fluid lazyload">
+                                    </a>
+                        </div>
+                    </div>
 
 
+                </div>
             </div>
-        </div>
-        </section>
+            </section>
 
-        Bd festive wear -->
+            Bd festive wear -->
     <!--two grid end-->
     <!--four grid-->
 
@@ -313,85 +313,125 @@
     <!-- FOOTER -->
     <!--four grid-->
     <!--
-        <section class="section" style="background-color:#d71f27; padding: 30px 0px;">
-        <div class="container-fluid">
+            <section class="section" style="background-color:#d71f27; padding: 30px 0px;">
+            <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/matching-cloths/family-collection" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479161.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479161.jpeg	" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                <div class="row">
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/matching-cloths/family-collection" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479161.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479161.jpeg	" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/matching-cloths/couple-collection" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479171.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479171.jpeg" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/matching-cloths/couple-collection" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479171.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479171.jpeg" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/men-puja-special" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479182.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479182.jpeg	" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/men-puja-special" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479182.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479182.jpeg	" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/men-puja-special/dhoti-pajama" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479195.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479195.jpeg	" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/men-puja-special/dhoti-pajama" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479195.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479195.jpeg	" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/kids" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479207.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479207.jpeg" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/kids" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479207.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479207.jpeg" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="col-lg-2 col-4 home_grid_banner">
-                    <div class="media-banner mb-3 mb-lg-0">
-                        <a href="https://swaponsworld.com/category/puja-special/men-puja-special/tshirt" class="banner-container">
-                                    <img src="https://swaponsworld.com/public/uploads/media/1662479216.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479216.jpeg	" alt="Banner" class="img-fluid lazyload">
-                                </a>
+                    <div class="col-lg-2 col-4 home_grid_banner">
+                        <div class="media-banner mb-3 mb-lg-0">
+                            <a href="https://swaponsworld.com/category/puja-special/men-puja-special/tshirt" class="banner-container">
+                                        <img src="https://swaponsworld.com/public/uploads/media/1662479216.jpeg	" data-src="https://swaponsworld.com/public/uploads/media/1662479216.jpeg	" alt="Banner" class="img-fluid lazyload">
+                                    </a>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-        </section>
+            </section>
 
-        -->
+            -->
+
+
+
 
     <section class="section">
+        <style>
+            .reviews i{
+                color: #274C5C;
+            }
+        </style>
+
         <div class="container-fluid">
             <div class="row color_bg">
                 <div class="col-12">
                     <div>
                         <div class="section-title-1 clearfix">
                             <h3 class="heading-5 strong-700 mb-0 float-left">
-                                <span class="mr-4"> Customer Review </span>
+                                <span class="mr-4"> Customer Review
+                                </span>
                             </h3>
                         </div>
 
                         <div class="row">
+                            <div class="col-md-12 margin-top10-m">
+                                <div class="caorusel-box arrow-round gutters-5">
+                                    <div class="slick-carousel" data-slick-items="6" data-slick-xl-items="5"
+                                        data-slick-lg-items="4" data-slick-md-items="3" data-slick-sm-items="2"
+                                        data-slick-xs-items="2" data-slick-autoplay="true" data-slick-autoplay-speed="2000">
+                                        @foreach ($section->all_products as $product)
+                                        <div class="caorusel-card">
+                                            <div class="card reviews">
+                                                <img src="{{ asset('assets/frontend/images/images.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h4>Siber Bilen</h4>
 
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the
+                                                        bulk of the card's content.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
+
 
     <section class="slice-sm footer-top-bar bg-white">
         <div class="container sct-inner">
