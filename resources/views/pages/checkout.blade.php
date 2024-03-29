@@ -121,11 +121,19 @@
                                 @endif
                                 <div class="row pt-4">
                                     <div class="col-md-12 text-right">
-                                        <a href="" class="btn btn-styled btn-success">Online Payment</a>
-                                        <a href="{{ route('cash.on.delivery') }}" class="btn btn-styled btn-success">Cash on Delivery</a>
+                                        <div class="row justify-content-md-end">
+                                            <div class="col-md-auto mb-2 mb-md-0">
+                                                <a href="" class="btn btn-styled btn-success btn-block">Online Payment</a>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <a href="{{ route('cash.on.delivery') }}" class="btn btn-styled btn-success btn-block mt-md-0 mt-2">Cash on Delivery</a>
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 </div>
-                                
+
                             </div>
                         </div>
                         <!-- </form> -->

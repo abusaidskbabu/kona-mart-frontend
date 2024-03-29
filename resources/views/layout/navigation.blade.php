@@ -5,6 +5,17 @@
     .inline-links li i{
         font-size: 15px;
     }
+
+    @media only screen and (max-width: 992px) {
+        .logo-bar-area .navbar-brand {
+            height: 40px;
+        }
+
+        .logo-searchbar {
+                padding: 4px 0;
+            }
+    }
+
 </style>
 
 <div class="header bg-white">
@@ -144,7 +155,7 @@
 
                             <!-- Brand/Logo -->
                             <a class="navbar-brand w-100" href="/">
-                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" style="height: 60px;" height="60px" alt="{{ $settings->site_title }}">
+                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" style="height: 60px;" alt="{{ $settings->site_title }}">
                             </a>
                         </div>
                     </div>
