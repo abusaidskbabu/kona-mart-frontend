@@ -37,8 +37,9 @@ Route::get('/signup', 'AuthController@signup')->name('signup');
 Route::post('/signup-store', 'AuthController@signupStore')->name('signup.store');
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/authenticate', 'AuthController@authenticate')->name('authenticate');
+Route::get('/logout', 'AuthController@logout')->name('logout');
 
-Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard')->middleware('auth');;
 
 Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 Route::get('/contact-us', 'HomeController@contactUs')->name('contactUs');

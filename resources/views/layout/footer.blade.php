@@ -121,11 +121,19 @@
                 <span class="badge footer_cart_items_sidenav" id="cart_items_sidenav">0</span>
             </a>
 
-            <a href="#!" class="text-reset flex-grow-1 text-center py-2 toggle_userpanel_bar">
-                <span class="avatar avatar-sm d-block mx-auto">
-                    <img src="{{ asset('assets/frontend/images/menubar/User.png') }}" width="50">
-                </span>
-            </a>
+            @auth
+                <a href="{{ route('dashboard') }}" class="text-reset flex-grow-1 text-center py-2">
+                    <span class="avatar avatar-sm d-block mx-auto">
+                        <img src="{{ asset('assets/frontend/images/menubar/User.png') }}" width="50">
+                    </span>
+                </a>
+            @else
+                <a href="{{ route('login') }}" class="text-reset flex-grow-1 text-center py-2">
+                    <span class="avatar avatar-sm d-block mx-auto">
+                        <img src="{{ asset('assets/frontend/images/menubar/User.png') }}" width="50">
+                    </span>
+                </a>
+            @endauth
         </div>
     </div>
 </footer>

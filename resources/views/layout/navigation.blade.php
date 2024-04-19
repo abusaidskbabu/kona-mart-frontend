@@ -24,10 +24,10 @@
             <div class="row">
                 <div class="col-lg-6 col d-flex align-items-center">
                     <ul class="inline-links d-lg-inline-block d-flex justify-content-between">
-                        <li id="fb_link"><a href="http://www.facebook.com/siwaklifestyle"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li id="tw_link"><a href=""><i class="fab fa-twitter-square" aria-hidden="true"></i></a></li>
-                        <li id="insta_link"><a href=""><i class="fab fa-instagram-square" aria-hidden="true"></i></a></li>
-                        <li id="yt_link"><a href=""><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                        <li id="fb_link"><a target="_blank" href="{{ $settings->facebook }}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li id="tw_link"><a target="_blank" href="{{ $settings->twitter }}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li id="insta_link"><a target="_blank" href="{{ $settings->instagram }}"><i class="fab fa-instagram-square" aria-hidden="true"></i></a></li>
+                        <li id="yt_link"><a target="_blank" href="{{ $settings->youtube }}"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
                         <li class="mobile_no"><i class="fas fa-phone" aria-hidden="true"></i> {{ $settings->phone }} </li>
 				        <li class="email_addr"><i class="fas fa-envelope-open" aria-hidden="true"></i> {{ $settings->email }} </li>
                         {{-- <li>
@@ -69,10 +69,12 @@
                         <div class="image "
                             style="background-image:url('public/frontend/images/icons/user-placeholder.jpg')"></div>
                     </div>
-                    <div class="side-login px-3 pb-3">
-                        <a href="{{ route('login') }}">Sign In</a>
-                        <a href="{{ route('signup') }}">Registration</a>
-                    </div>
+                    @auth
+                        <div class="side-login px-3 pb-3">
+                            <a href="{{ route('login') }}">{{ auth()->user()->name }}</a>| <a href="{{ route('logout') }}">Logout</a>
+                        </div>
+                    @endauth
+                    
                 </div>
                 <div class="side-menu-list px-3">
                     <!--mobile menu-->
@@ -106,28 +108,6 @@
                         @empty
                         @endforelse
 
-                        @if(Auth::user())
-                            <li class="nav-item">
-                                <a href="{{ route('dashboard')}}" class="nav-link">
-                                    <i class="la la-dashboard"></i>
-                                    <span>Dashboard</span>
-                                </a>
-                            </li>
-                        @endif
-
-                        <li class="nav-item">
-                            <a href="{{ route('cart') }}" class="nav-link">
-                                <i class="la la-shopping-cart"></i>
-                                <span>Cart</span>
-                                <span class="badge leftbar_cart_items_sidenav" id="cart_items_sidenav">0</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="users/login.html" class="nav-link">
-                                <i class="la la-heart-o"></i>
-                                <span>Wishlist</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -162,7 +142,7 @@
                     <div class="col-lg-9 col-6 position-static">
                         <div class="d-flex w-100">
                             <div class="search-box flex-grow-1 px-4">
-                                <form action="https://dorjibari.com.bd/search" method="GET">
+                                <form action="" method="GET">
                                     <div class="d-flex position-relative">
                                         <div class="d-lg-none search-box-back">
                                             <button class="" type="button"><i class="la la-long-arrow-left"></i></button>
@@ -214,10 +194,16 @@
                                 </div>
 
                                 <div class="d-inline-block">
-                                    <div class="nav-cart-box toggle_userpanel_bar">
-                                        <a href="#!" class="nav-box-link">
-                                            <i class="la la-user d-inline-block nav-box-icon"></i>
-                                        </a>
+                                    <div class="nav-cart-box">
+                                        @auth
+                                            <a href="{{ route('dashboard') }}" class="nav-box-link"> <!-- Redirect to dashboard route -->
+                                                <i class="la la-user d-inline-block nav-box-icon"></i>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('login') }}" class="nav-box-link"> <!-- Redirect to login route -->
+                                                <i class="la la-user d-inline-block nav-box-icon"></i>
+                                            </a>
+                                        @endauth
                                     </div>
                                 </div>
 
