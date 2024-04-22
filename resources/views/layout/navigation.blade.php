@@ -42,12 +42,18 @@
                         <li>
                             <a href="track_your_order.html" class="top-bar-item">Track Order</a>
                         </li>
-                        <li>
-                            <a href="{{ route('login') }}" class="top-bar-item">Login</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('signup') }}" class="top-bar-item">Registration</a>
-                        </li>
+                        @auth
+                            <li>
+                                <a href="{{ route('logout') }}" class="top-bar-item">Login</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}" class="top-bar-item">Login</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('signup') }}" class="top-bar-item">Registration</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
