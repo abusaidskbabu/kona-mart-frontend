@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,8 @@ Route::get('/contact-us', 'HomeController@contactUs')->name('contactUs');
 Route::get('/terms-condition', 'HomeController@termsCond')->name('termsCond');
 Route::get('/return-policy', 'HomeController@returnPolicy')->name('returnPolicy');
 Route::get('/store-location', 'HomeController@storeLocation')->name('storeLocation');
+
+
+// profile-controller
+Route::post('/updateProfile',[ProfileController::class,'update'])->name('updateProfile');
+Route::post('/changePassword',[ProfileController::class,'changePassword'])->name('changePassword');
