@@ -80,7 +80,7 @@
                             <a href="{{ route('login') }}">{{ auth()->user()->name }}</a>| <a href="{{ route('logout') }}">Logout</a>
                         </div>
                     @endauth
-                    
+
                 </div>
                 <div class="side-menu-list px-3">
                     <!--mobile menu-->
@@ -124,30 +124,11 @@
     <div class="position-relative logo-bar-area">
         <div class="logo-searchbar">
             <div class="container-fluid">
-                <div class="row no-gutters align-items-center">
-                    <div class="col-lg-3 col-6">
-                        <div class="d-flex header-logo">
-                            <div class="d-block d-lg-none mobile-menu-icon-box">
-                                <!-- Navbar toggler  -->
-                                <a href="#" onclick="sideMenuOpen(this)">
-                                    <div class="hamburger-icon">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </a>
-                            </div>
+                <div class="row no-gutters justify-content-between align-items-center ">
 
-                            <!-- Brand/Logo -->
-                            <a class="navbar-brand w-100" href="/">
-                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" style="height: 60px;" alt="{{ $settings->site_title }}">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-6 position-static">
+                    <div class="col-lg-5 col-6 d-flex">
                         <div class="d-flex w-100">
-                            <div class="search-box flex-grow-1 px-4">
+                            <div class="search-box">
                                 <form action="" method="GET">
                                     <div class="d-flex position-relative">
                                         <div class="d-lg-none search-box-back">
@@ -188,64 +169,88 @@
                                 </form>
 
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="logo-bar-icons d-inline-block ml-auto">
-                                <div class="d-inline-block d-lg-none">
-                                    <div class="nav-search-box">
-                                        <a href="#" class="nav-box-link">
-                                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
-                                        </a>
+                    <div class="col-lg-3 col-6">
+                        <div class="d-flex header-logo">
+                            <div class="d-block d-lg-none mobile-menu-icon-box">
+                                <!-- Navbar toggler  -->
+                                <a href="#" onclick="sideMenuOpen(this)">
+                                    <div class="hamburger-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </div>
+                                </a>
+                            </div>
 
+                            <!-- Brand/Logo -->
+                            <a class="navbar-brand w-100 d-flex justify-content-center" href="/">
+                                <img src="{{ env('APPI_URL').'/logo/'.$settings->site_logo }}" style="height: 60px;" alt="{{ $settings->site_title }}">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-6 d-flex">
+                        <div class="logo-bar-icons d-inline-block ml-auto">
+                            <div class="d-inline-block d-lg-none">
+                                <div class="nav-search-box">
+                                    <a href="#" class="nav-box-link">
+                                        <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
+                                    </a>
                                 </div>
 
-                                <div class="d-inline-block">
-                                    <div class="nav-cart-box">
-                                        @auth
-                                            <a href="{{ route('dashboard') }}" class="nav-box-link"> <!-- Redirect to dashboard route -->
-                                                <i class="la la-user d-inline-block nav-box-icon"></i>
-                                            </a>
-                                        @else
-                                            <a href="{{ route('login') }}" class="nav-box-link"> <!-- Redirect to login route -->
-                                                <i class="la la-user d-inline-block nav-box-icon"></i>
-                                            </a>
-                                        @endauth
-                                    </div>
-                                </div>
+                            </div>
 
-                                <div class="d-inline-block">
-                                    <div class="nav-cart-box  toggle_cart_bar" id="cart_items">
-                                        <a href="#!" class="nav-box-link">
-                                            <i class="la la-shopping-cart d-inline-block nav-box-icon"></i>
-                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
-                                            <span class="nav-box-number">0</span>
+                            <div class="d-inline-block">
+                                <div class="nav-cart-box">
+                                    @auth
+                                        <a href="{{ route('dashboard') }}" class="nav-box-link"> <!-- Redirect to dashboard route -->
+                                            <i class="la la-user d-inline-block nav-box-icon"></i>
                                         </a>
-                                    </div>
-                                </div>
-
-                                <div class="d-inline-block">
-                                    <div class="nav-cart-box  toggle_notification_bar" id="notification_items">
-                                        <a href="#!" class="nav-box-link">
-                                            <i class="la la-bell d-inline-block nav-box-icon"></i>
-                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
-                                            <span class="nav-box-number new-notice-count">0</span>
+                                    @else
+                                        <a href="{{ route('login') }}" class="nav-box-link"> <!-- Redirect to login route -->
+                                            <i class="la la-user d-inline-block nav-box-icon"></i>
                                         </a>
-
-                                    </div>
+                                    @endauth
                                 </div>
+                            </div>
 
-                                <div class="d-none d-lg-inline-block">
-                                    <div class="nav-wishlist-box" id="wishlist">
-                                        <a href="users/login.html" class="nav-box-link">
-                                            <i class="la la-heart-o d-inline-block nav-box-icon"></i>
-                                            <span class="nav-box-text d-none d-xl-inline-block"></span>
-                                            <span class="nav-box-number">0</span>
-                                        </a>
-                                    </div>
+                            <div class="d-inline-block">
+                                <div class="nav-cart-box  toggle_cart_bar" id="cart_items">
+                                    <a href="#!" class="nav-box-link">
+                                        <i class="la la-shopping-cart d-inline-block nav-box-icon"></i>
+                                        <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                        <span class="nav-box-number">0</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="d-inline-block">
+                                <div class="nav-cart-box  toggle_notification_bar" id="notification_items">
+                                    <a href="#!" class="nav-box-link">
+                                        <i class="la la-bell d-inline-block nav-box-icon"></i>
+                                        <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                        <span class="nav-box-number new-notice-count">0</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="d-none d-lg-inline-block">
+                                <div class="nav-wishlist-box" id="wishlist">
+                                    <a href="users/login.html" class="nav-box-link">
+                                        <i class="la la-heart-o d-inline-block nav-box-icon"></i>
+                                        <span class="nav-box-text d-none d-xl-inline-block"></span>
+                                        <span class="nav-box-number">0</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
